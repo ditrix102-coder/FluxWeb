@@ -199,37 +199,78 @@
 
             if (!toggleBtn || !menuOverlay) return;
 
-            function toggleMenu() {
-                isMenuOpen = !isMenuOpen;
+            function openMenu() {
+                isMenuOpen = true;
+                menuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                menuIcon.setAttribute('data-lucide', 'x');
+                document.body.style.overflow = 'hidden'; // Prevenir scroll
+                lucide.createIcons();
+                // Añadir hash para que el botón "Atrás" de Android funcione
+                if (window.location.hash !== '#menu') {
+                    window.history.pushState({ menu: true }, '', '#menu');
+                }
+            }
+
+            function closeMenu() {
+                isMenuOpen = false;
+                menuOverlay.classList.add('opacity-0', 'pointer-events-none');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                document.body.style.overflow = '';
+                lucide.createIcons();
+                // Si el hash es #menu, lo quitamos
+                if (window.location.hash === '#menu') {
+                    window.history.back();
+                }
+            }
+
+            toggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
                 if (isMenuOpen) {
-                    menuOverlay.classList.remove('opacity-0', 'pointer-events-none');
-                    menuIcon.setAttribute('data-lucide', 'x');
-                    document.body.style.overflow = 'hidden'; // Prevenir scroll
+                    closeMenu();
                 } else {
+                    openMenu();
+                }
+            });
+
+            // Cerrar menú si el usuario presiona el botón "Atrás" en su celular
+            window.addEventListener('popstate', (e) => {
+                if (isMenuOpen && window.location.hash !== '#menu') {
+                    // El usuario presionó atrás, cerramos el menú pero sin llamar a history.back() de nuevo
+                    isMenuOpen = false;
                     menuOverlay.classList.add('opacity-0', 'pointer-events-none');
                     menuIcon.setAttribute('data-lucide', 'menu');
                     document.body.style.overflow = '';
+                    lucide.createIcons();
                 }
-                lucide.createIcons();
-            }
-
-            toggleBtn.addEventListener('click', toggleMenu);
+            });
 
             mobileNavItems.forEach(item => {
                 item.addEventListener('click', (e) => {
+                    e.preventDefault();
                     const targetId = item.getAttribute('href');
+                    
+                    if (isMenuOpen) {
+                        closeMenu();
+                    }
+                    
                     if(targetId && targetId !== '#') {
-                        e.preventDefault();
-                        toggleMenu();
+                        // Esperar un instante para que el overflow:hidden se quite y el DOM respire
                         setTimeout(() => {
                             const targetElement = document.querySelector(targetId);
                             if(targetElement) {
+                                // Calculamos la posición exacta
+                                const elementPosition = targetElement.getBoundingClientRect().top;
+                                const offsetPosition = elementPosition + window.scrollY - 80;
+                                
                                 window.scrollTo({
-                                    top: targetElement.offsetTop - 80,
+                                    top: offsetPosition,
                                     behavior: 'smooth'
                                 });
+                                
+                                // Actualizamos la URL para navegación normal
+                                window.history.pushState(null, '', targetId);
                             }
-                        }, 300);
+                        }, 50);
                     }
                 });
             });
