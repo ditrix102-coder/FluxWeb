@@ -167,9 +167,73 @@
 
         // Ejecutar animación cuando la página carga completamente
         window.addEventListener('DOMContentLoaded', () => {
-            buildGSAPAnimation();
+            // Solo animar si estamos en escritorio (lg: >= 1024px)
+            if (window.innerWidth >= 1024) {
+                buildGSAPAnimation();
+            } else {
+                // Asegurarse de que el mobile header esté visible
+                const mobileHeader = document.querySelector('.lg\\:hidden');
+                if (mobileHeader) mobileHeader.style.opacity = 1;
+            }
             initScrollSpy();
+            initMobileMenu();
         });
+
+        // Reconstruir animación si la ventana cambia de tamaño cruzando el umbral
+        let wasDesktop = window.innerWidth >= 1024;
+        window.addEventListener('resize', () => {
+            const isDesktop = window.innerWidth >= 1024;
+            if (isDesktop && !wasDesktop) {
+                buildGSAPAnimation();
+            }
+            wasDesktop = isDesktop;
+        });
+
+        /* Lógica del Menú Móvil */
+        function initMobileMenu() {
+            const toggleBtn = document.getElementById('mobileMenuToggle');
+            const menuOverlay = document.getElementById('mobileMenuOverlay');
+            const menuIcon = document.getElementById('menuIcon');
+            const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+            let isMenuOpen = false;
+
+            if (!toggleBtn || !menuOverlay) return;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    menuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+                    menuIcon.setAttribute('data-lucide', 'x');
+                    document.body.style.overflow = 'hidden'; // Prevenir scroll
+                } else {
+                    menuOverlay.classList.add('opacity-0', 'pointer-events-none');
+                    menuIcon.setAttribute('data-lucide', 'menu');
+                    document.body.style.overflow = '';
+                }
+                lucide.createIcons();
+            }
+
+            toggleBtn.addEventListener('click', toggleMenu);
+
+            mobileNavItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    const targetId = item.getAttribute('href');
+                    if(targetId && targetId !== '#') {
+                        e.preventDefault();
+                        toggleMenu();
+                        setTimeout(() => {
+                            const targetElement = document.querySelector(targetId);
+                            if(targetElement) {
+                                window.scrollTo({
+                                    top: targetElement.offsetTop - 80,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        }, 300);
+                    }
+                });
+            });
+        }
 
         /* Función mock para WhatsApp (Evitar uso de alerts) */
         function openWhatsApp() {

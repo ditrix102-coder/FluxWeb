@@ -1,7 +1,9 @@
 ---
 ---
-<header class="fixed top-0 left-0 right-0 z-50 w-full overflow-x-auto py-3 px-4 flex justify-center transition-all duration-300" id="navbar">
-    <div id="capsuleAssembly" class="inline-flex items-center justify-center flex-nowrap -space-x-[26px]">
+<header class="fixed top-0 left-0 right-0 z-50 w-full py-3 px-4 flex justify-between lg:justify-center transition-all duration-300 pointer-events-none" id="navbar">
+    
+    <!-- DESKTOP CAPSULE (Hidden on mobile, visible on lg) -->
+    <div id="capsuleAssembly" class="hidden lg:inline-flex items-center justify-center flex-nowrap -space-x-[26px] pointer-events-auto">
         <!-- 1. EXTREMO IZQUIERDO: Logo y Nombre de Marca -->
         <div id="leftSocket" class="socket-left bg-slate-900 border border-slate-800 h-[52px] pl-6 pr-10 flex items-center z-10 shrink-0 shadow-lg relative">
             <div id="leftContent" class="socket-content flex items-center space-x-3 w-full">
@@ -36,11 +38,37 @@
             <div id="rightContent" class="socket-content">
                 <a href="#contacto" class="px-4 py-1.5 rounded-full bg-indigo-500 hover:bg-indigo-400 text-white text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md shadow-indigo-500/20 flex items-center gap-1.5 whitespace-nowrap active:scale-95">
                     <span>Solicitar presupuesto</span>
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                    </svg>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
         </div>
+    </div>
+
+    <!-- MOBILE HEADER (Visible on sm/md, hidden on lg) -->
+    <div class="lg:hidden w-full flex justify-between items-center bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-2xl p-2 px-4 shadow-xl pointer-events-auto">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full shadow-md overflow-hidden bg-surface">
+                <img src="/favicon.png" alt="FluxWeb Logo" class="w-full h-full object-cover" />
+            </div>
+            <span class="font-bold text-sm tracking-tight text-white">FluxWeb</span>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button id="mobileMenuToggle" class="text-white p-2 focus:outline-none hover:bg-slate-800 rounded-lg transition-colors" aria-label="Toggle Menu">
+            <i data-lucide="menu" class="w-6 h-6" id="menuIcon"></i>
+        </button>
+    </div>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobileMenuOverlay" class="fixed inset-0 bg-slate-950/98 backdrop-blur-xl z-[40] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300 lg:hidden">
+        <nav class="flex flex-col space-y-6 text-center">
+            <a href="#servicios" class="mobile-nav-item text-xl text-slate-300 hover:text-white font-medium transition-colors">Servicios</a>
+            <a href="#beneficios" class="mobile-nav-item text-xl text-slate-300 hover:text-white font-medium transition-colors">Beneficios</a>
+            <a href="#proceso" class="mobile-nav-item text-xl text-slate-300 hover:text-white font-medium transition-colors">Proceso</a>
+            <a href="#trabajos" class="mobile-nav-item text-xl text-slate-300 hover:text-white font-medium transition-colors">Trabajos</a>
+            <a href="#faq" class="mobile-nav-item text-xl text-slate-300 hover:text-white font-medium transition-colors">Preguntas</a>
+            <a href="#contacto" class="mobile-nav-item text-xl text-indigo-400 hover:text-indigo-300 font-bold mt-4 transition-colors">Solicitar presupuesto</a>
+        </nav>
     </div>
 </header>
