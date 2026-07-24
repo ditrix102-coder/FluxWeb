@@ -170,13 +170,8 @@
             // Solo animar si estamos en escritorio (lg: >= 1024px)
             if (window.innerWidth >= 1024) {
                 buildGSAPAnimation();
-            } else {
-                // Asegurarse de que el mobile header esté visible
-                const mobileHeader = document.querySelector('.lg\\:hidden');
-                if (mobileHeader) mobileHeader.style.opacity = 1;
             }
             initScrollSpy();
-            initMobileMenu();
         });
 
         // Reconstruir animación si la ventana cambia de tamaño cruzando el umbral
@@ -188,93 +183,6 @@
             }
             wasDesktop = isDesktop;
         });
-
-        /* Lógica del Menú Móvil */
-        function initMobileMenu() {
-            const toggleBtn = document.getElementById('mobileMenuToggle');
-            const menuOverlay = document.getElementById('mobileMenuOverlay');
-            const menuIcon = document.getElementById('menuIcon');
-            const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
-            let isMenuOpen = false;
-
-            if (!toggleBtn || !menuOverlay) return;
-
-            function openMenu() {
-                isMenuOpen = true;
-                menuOverlay.classList.remove('opacity-0', 'pointer-events-none');
-                menuIcon.setAttribute('data-lucide', 'x');
-                document.body.style.overflow = 'hidden'; // Prevenir scroll
-                lucide.createIcons();
-                // Añadir hash para que el botón "Atrás" de Android funcione
-                if (window.location.hash !== '#menu') {
-                    window.history.pushState({ menu: true }, '', '#menu');
-                }
-            }
-
-            function closeMenu() {
-                isMenuOpen = false;
-                menuOverlay.classList.add('opacity-0', 'pointer-events-none');
-                menuIcon.setAttribute('data-lucide', 'menu');
-                document.body.style.overflow = '';
-                lucide.createIcons();
-                // Si el hash es #menu, lo quitamos
-                if (window.location.hash === '#menu') {
-                    window.history.back();
-                }
-            }
-
-            toggleBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (isMenuOpen) {
-                    closeMenu();
-                } else {
-                    openMenu();
-                }
-            });
-
-            // Cerrar menú si el usuario presiona el botón "Atrás" en su celular
-            window.addEventListener('popstate', (e) => {
-                if (isMenuOpen && window.location.hash !== '#menu') {
-                    // El usuario presionó atrás, cerramos el menú pero sin llamar a history.back() de nuevo
-                    isMenuOpen = false;
-                    menuOverlay.classList.add('opacity-0', 'pointer-events-none');
-                    menuIcon.setAttribute('data-lucide', 'menu');
-                    document.body.style.overflow = '';
-                    lucide.createIcons();
-                }
-            });
-
-            mobileNavItems.forEach(item => {
-                item.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = item.getAttribute('href');
-                    
-                    if (isMenuOpen) {
-                        closeMenu();
-                    }
-                    
-                    if(targetId && targetId !== '#') {
-                        // Esperar un instante para que el overflow:hidden se quite y el DOM respire
-                        setTimeout(() => {
-                            const targetElement = document.querySelector(targetId);
-                            if(targetElement) {
-                                // Calculamos la posición exacta
-                                const elementPosition = targetElement.getBoundingClientRect().top;
-                                const offsetPosition = elementPosition + window.scrollY - 80;
-                                
-                                window.scrollTo({
-                                    top: offsetPosition,
-                                    behavior: 'smooth'
-                                });
-                                
-                                // Actualizamos la URL para navegación normal
-                                window.history.pushState(null, '', targetId);
-                            }
-                        }, 50);
-                    }
-                });
-            });
-        }
 
         /* Función mock para WhatsApp (Evitar uso de alerts) */
         function openWhatsApp() {
