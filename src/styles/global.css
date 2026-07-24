@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-primaryText: var(--color-primary-text);
+  --color-secondaryText: var(--color-secondary-text);
+  --color-brand: var(--color-brand);
+  --color-accent: var(--color-accent);
+  --color-borderLight: var(--color-border-light);
+  --shadow-premium: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-premium-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+}
+
+/* Estilos base y utilidades personalizadas que complementan Tailwind */
+:root {
+    --color-background: #F8FAFC;
+    --color-surface: #FFFFFF;
+    --color-primary-text: #0F172A;
+    --color-secondary-text: #64748B;
+    --color-brand: #2563EB;
+    --color-accent: #22C55E;
+    --color-border-light: #E2E8F0;
+}
+
+html.dark {
+    --color-background: #0f172a; /* Slate 900 */
+    --color-surface: #1e293b; /* Slate 800 */
+    --color-primary-text: #f8fafc; /* Slate 50 */
+    --color-secondary-text: #94a3b8; /* Slate 400 */
+    --color-brand: #3b82f6; /* Blue 500 */
+    --color-accent: #22c55e; /* Green 500 */
+    --color-border-light: #334155; /* Slate 700 */
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-primary-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ocultar scrollbar pero permitir scroll */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Efecto Glassmorphism para Navbar */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+/* Acordeón personalizado */
+details > summary {
+    list-style: none;
+}
+details > summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+}
+details[open] .faq-icon {
+    transform: rotate(180deg);
+}
+
+/* Transiciones suaves generales */
+.smooth-transition {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 
+ * MÁSCARA CÓNCAVA PERFECTA (SOCKET JOIN):
+ * Para cápsulas de 52px de altura (Radio = 26px).
+ * El corte radial oculta exactamente 26px en el borde de acople.
+ */
+.socket-left {
+    border-radius: 26px 0 0 26px;
+    -webkit-mask-image: radial-gradient(circle at 100% 50%, transparent 25.5px, #000 26px);
+    mask-image: radial-gradient(circle at 100% 50%, transparent 25.5px, #000 26px);
+}
+
+.socket-right {
+    border-radius: 0 26px 26px 0;
+    -webkit-mask-image: radial-gradient(circle at 0% 50%, transparent 25.5px, #000 26px);
+    mask-image: radial-gradient(circle at 0% 50%, transparent 25.5px, #000 26px);
+}

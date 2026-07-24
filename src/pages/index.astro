@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Servicios from '../components/Servicios.astro';
+import Beneficios from '../components/Beneficios.astro';
+import Proceso from '../components/Proceso.astro';
+import Trabajos from '../components/Trabajos.astro';
+import Testimonios from '../components/Testimonios.astro';
+import Faq from '../components/Faq.astro';
+import Contacto from '../components/Contacto.astro';
+import Footer from '../components/Footer.astro';
+---
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluxWeb | Automatizamos tu negocio</title>
+    <meta name="description" content="Creamos páginas web y automatizaciones para emprendedores y empresas. Ahorra tiempo, consigue más clientes y automatiza tus ventas sin saber de tecnología.">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    
+    <!-- Fuentes: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS para animaciones -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- GSAP para animaciones del menú cápsula -->
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body class="font-sans antialiased bg-background text-primaryText transition-colors duration-300">
+
+    <ThemeToggle />
+    <Header />
+
+    <main class="pt-20">
+        <Hero />
+        <Servicios />
+        <Beneficios />
+        <Proceso />
+        <Trabajos />
+        <Testimonios />
+        <Faq />
+        <Contacto />
+    </main>
+
+    <Footer />
+
+    <!-- Scripts CDN -->
+    <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script is:inline src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        import '../scripts/main.js';
+    </script>
+</body>
+</html>

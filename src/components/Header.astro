@@ -1,0 +1,46 @@
+---
+---
+<header class="fixed top-0 left-0 right-0 z-50 w-full overflow-x-auto py-3 px-4 flex justify-center transition-all duration-300" id="navbar">
+    <div id="capsuleAssembly" class="inline-flex items-center justify-center flex-nowrap -space-x-[26px]">
+        <!-- 1. EXTREMO IZQUIERDO: Logo y Nombre de Marca -->
+        <div id="leftSocket" class="socket-left bg-slate-900 border border-slate-800 h-[52px] pl-6 pr-10 flex items-center z-10 shrink-0 shadow-lg relative">
+            <div id="leftContent" class="socket-content flex items-center space-x-3 w-full">
+                <div class="w-8 h-8 rounded-full shadow-md shrink-0 overflow-hidden bg-surface">
+                    <img src="/favicon.png" alt="FluxWeb Logo" class="w-full h-full object-cover" />
+                </div>
+                <span class="font-bold text-sm tracking-tight text-white whitespace-nowrap">FluxWeb</span>
+            </div>
+        </div>
+
+        <!-- 2. CÁPSULA CENTRAL: Menú de navegación -->
+        <nav id="centerCapsule" class="relative bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-600 text-white shadow-xl shadow-indigo-500/20 h-[52px] px-4 rounded-full flex items-center justify-center space-x-1 z-20 border border-indigo-400/40 shrink-0 overflow-hidden">
+            <a href="#servicios" onclick="selectNavItem(this, event)" class="nav-item active bg-white/20 text-white font-semibold px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
+                Servicios
+            </a>
+            <a href="#beneficios" onclick="selectNavItem(this, event)" class="nav-item text-indigo-100 hover:bg-white/10 hover:text-white font-medium px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
+                Beneficios
+            </a>
+            <a href="#proceso" onclick="selectNavItem(this, event)" class="nav-item text-indigo-100 hover:bg-white/10 hover:text-white font-medium px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
+                Proceso
+            </a>
+            <a href="#trabajos" onclick="selectNavItem(this, event)" class="nav-item text-indigo-100 hover:bg-white/10 hover:text-white font-medium px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
+                Trabajos
+            </a>
+            <a href="#faq" onclick="selectNavItem(this, event)" class="nav-item text-indigo-100 hover:bg-white/10 hover:text-white font-medium px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
+                Preguntas
+            </a>
+        </nav>
+
+        <!-- 3. EXTREMO DERECHO: Botón de Acción -->
+        <div id="rightSocket" class="socket-right bg-slate-900 border border-slate-800 h-[52px] pl-10 pr-6 flex items-center z-10 shrink-0 shadow-lg relative">
+            <div id="rightContent" class="socket-content">
+                <a href="#contacto" class="px-4 py-1.5 rounded-full bg-indigo-500 hover:bg-indigo-400 text-white text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md shadow-indigo-500/20 flex items-center gap-1.5 whitespace-nowrap active:scale-95">
+                    <span>Solicitar presupuesto</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
