@@ -13,7 +13,7 @@ import Contacto from '../components/Contacto.astro';
 import Footer from '../components/Footer.astro';
 ---
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,15 +29,13 @@ import Footer from '../components/Footer.astro';
     <!-- AOS CSS para animaciones -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- GSAP para animaciones del menú cápsula -->
-    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body class="font-sans antialiased bg-background text-primaryText transition-colors duration-300">
 
     <ThemeToggle />
     <Header />
 
-    <main class="pt-20">
+    <main class="pt-20" id="inicio">
         <Hero />
         <Servicios />
         <Beneficios />

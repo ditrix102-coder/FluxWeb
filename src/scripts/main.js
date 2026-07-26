@@ -1,49 +1,86 @@
-        /* Inicializar Lucide Icons */
-        lucide.createIcons();
+import Lenis from 'lenis';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-        /* Inicializar AOS Animations */
-        AOS.init({
-            once: true, // Animación ocurre solo la primera vez que se hace scroll
-            offset: 50, // Offset para gatillar
-            easing: 'ease-out-cubic',
-        });
+// 1. Registrar GSAP y detectar preferencia de movimiento
+gsap.registerPlugin(ScrollTrigger);
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        /* Lógica del Menú Cápsula (GSAP) */
-        let masterTL;
+let lenis;
 
-        function updateActiveNavItem(element) {
-            const items = document.querySelectorAll('.nav-item');
-            items.forEach(item => {
-                item.classList.remove('active', 'bg-white/20', 'text-white', 'font-semibold');
-                item.classList.add('text-indigo-100', 'hover:bg-white/10', 'font-medium');
-            });
+if (!prefersReducedMotion) {
+    // 2. Inicializar Lenis (Configuración de inercia más flotante y suave)
+    lenis = new Lenis({
+        duration: 1.8, // Duración de la animación más larga para mayor suavidad
+        easing: (t) => 1 - Math.pow(1 - t, 4), // Easing Quartic Out para una deceleración más lenta y elegante
+        wheelMultiplier: 0.8, // Atenúa los movimientos bruscos de la rueda del mouse
+        smooth: true,
+    });
 
-            element.classList.add('active', 'bg-white/20', 'text-white', 'font-semibold');
-            element.classList.remove('text-indigo-100', 'hover:bg-white/10', 'font-medium');
-        }
+    // 3. Sincronizar Lenis con GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
 
-        window.selectNavItem = function(element, event) {
-            if (event) event.preventDefault();
+    // 4. Unir Lenis al requestAnimationFrame (ticker) de GSAP
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+    
+    gsap.ticker.lagSmoothing(0); // Previene saltos en la animación
+}
 
-            updateActiveNavItem(element);
+/* Inicializar Lucide Icons */
+lucide.createIcons();
 
-            // Micro-animación elástica al hacer clic en las opciones del menú
-            if (typeof gsap !== 'undefined') {
-                gsap.fromTo(element, { scale: 0.9 }, { scale: 1, duration: 0.35, ease: "back.out(3)" });
+/* Inicializar AOS Animations */
+AOS.init({
+    once: true, // Animación ocurre solo la primera vez que se hace scroll
+    offset: 50, // Offset para gatillar
+    easing: 'ease-out-cubic',
+});
+
+/* Lógica del Menú Cápsula (GSAP) */
+let masterTL;
+
+function updateActiveNavItem(element) {
+    const items = document.querySelectorAll('.nav-item');
+    items.forEach(item => {
+        item.classList.remove('active', 'bg-white/20', 'text-white', 'font-semibold');
+        item.classList.add('text-indigo-100', 'hover:bg-white/10', 'font-medium');
+    });
+
+    element.classList.add('active', 'bg-white/20', 'text-white', 'font-semibold');
+    element.classList.remove('text-indigo-100', 'hover:bg-white/10', 'font-medium');
+}
+
+window.selectNavItem = function(element, event) {
+    if (event) event.preventDefault();
+
+    updateActiveNavItem(element);
+
+    // Micro-animación elástica al hacer clic en las opciones del menú
+    if (typeof gsap !== 'undefined') {
+        gsap.fromTo(element, { scale: 0.9 }, { scale: 1, duration: 0.35, ease: "back.out(3)" });
+    }
+    
+    // Scroll suave hacia la sección (sincronizado con Lenis)
+    const targetId = element.getAttribute('href');
+    if(targetId && targetId !== '#') {
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+            if (lenis) {
+                lenis.scrollTo(targetElement, {
+                    offset: -100,
+                    duration: 1.2
+                });
+            } else {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
             }
-            
-            // Scroll suave hacia la sección
-            const targetId = element.getAttribute('href');
-            if(targetId && targetId !== '#') {
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            }
         }
+    }
+}
 
         function initScrollSpy() {
             const navItems = document.querySelectorAll('.nav-item');
@@ -89,80 +126,133 @@
             // Guardar el ancho completo original de la cápsula
             const targetWidth = centerCapsule.offsetWidth;
 
+            const isDesktop = window.innerWidth >= 1024;
+
             // Matar cualquier animación previa activa
             if (masterTL) masterTL.kill();
 
-            masterTL = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 0.5 }); // Pequeño delay inicial
+            masterTL = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 0.3 }); // Pequeño delay inicial
 
-            // 0. Resetear propiedades
-            gsap.set([centerCapsule, leftSocket, rightSocket, leftContent, rightContent, navItems], {
-                clearProps: "all"
-            });
+            if (isDesktop) {
+                // RESET DESKTOP NAVBAR
+                gsap.set([centerCapsule, leftSocket, rightSocket, leftContent, rightContent, navItems], {
+                    clearProps: "all"
+                });
 
-            // Ocultar contenidos internos inicialmente
-            gsap.set([leftContent, rightContent], { opacity: 0, scale: 0.85, y: 3 });
-            gsap.set(navItems, { opacity: 0, scale: 0.7, y: 12 });
+                // Ocultar contenidos internos inicialmente
+                gsap.set([leftContent, rightContent], { opacity: 0, scale: 0.85, y: 3 });
+                gsap.set(navItems, { opacity: 0, scale: 0.7, y: 12 });
 
-            // Posición inicial: la cápsula empieza siendo un pequeño círculo en el centro
-            gsap.set(centerCapsule, {
-                width: 52,
-                paddingLeft: 0,
-                paddingRight: 0,
-                scale: 0.2,
-                opacity: 0,
-                transformOrigin: "center center"
-            });
+                // Posición inicial: la cápsula empieza siendo un pequeño círculo en el centro
+                gsap.set(centerCapsule, {
+                    width: 52,
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                    scale: 0.2,
+                    opacity: 0,
+                    transformOrigin: "center center"
+                });
 
-            // Ocultar las lengüetas replegadas detrás del centro
-            gsap.set(leftSocket, { x: 100, opacity: 0, scaleX: 0.8 });
-            gsap.set(rightSocket, { x: -100, opacity: 0, scaleX: 0.8 });
+                // Ocultar las lengüetas replegadas detrás del centro
+                gsap.set(leftSocket, { x: 100, opacity: 0, scaleX: 0.8 });
+                gsap.set(rightSocket, { x: -100, opacity: 0, scaleX: 0.8 });
 
-            // PASO 1: Aparece el círculo central con efecto muelle
-            masterTL.to(centerCapsule, {
-                duration: 0.45,
+                // PASO 1: Aparece el círculo central con efecto muelle
+                masterTL.to(centerCapsule, {
+                    duration: 0.45,
+                    opacity: 1,
+                    scale: 1,
+                    ease: "back.out(2)"
+                });
+
+                // PASO 2: El círculo se expande suavemente a los lados transformándose en la cápsula completa
+                masterTL.to(centerCapsule, {
+                    duration: 0.75,
+                    width: targetWidth,
+                    paddingLeft: "1rem",
+                    paddingRight: "1rem",
+                    ease: "elastic.out(1, 0.75)"
+                }, "-=0.1");
+
+                // PASO 3: Salen las lengüetas laterales desde los costados
+                masterTL.to([leftSocket, rightSocket], {
+                    duration: 0.6,
+                    x: 0,
+                    opacity: 1,
+                    scaleX: 1,
+                    stagger: 0.05,
+                    ease: "back.out(1.5)"
+                }, "-=0.45");
+
+                // PASO 4: Aparecen el Logo (izquierda) y el Botón de presupuesto (derecha)
+                masterTL.to([leftContent, rightContent], {
+                    duration: 0.4,
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    stagger: 0.1,
+                    ease: "power2.out"
+                }, "-=0.3");
+
+                // PASO 5: Se revelan en cascada los ítems del menú con rebote individual
+                masterTL.to(navItems, {
+                    duration: 0.45,
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    stagger: 0.07,
+                    ease: "back.out(2)"
+                }, "-=0.25");
+            }
+
+            // ANIMACIÓN DE LA SECCIÓN DE INICIO (HERO)
+            const heroElements = ["#heroTag", "#heroTitle", "#heroText", "#heroButtons"];
+            
+            // Ocultamos elementos inicialmente
+            gsap.set(heroElements, { opacity: 0, y: 30 });
+            gsap.set("#heroMockup", { opacity: 0, x: isDesktop ? 50 : 0, y: isDesktop ? 0 : 30 });
+            
+            // Ocultamos las tarjetas del mockup
+            gsap.set("#mockupCard1", { opacity: 0, x: -50 });
+            gsap.set("#mockupCard2", { opacity: 0, x: 50 });
+            gsap.set("#mockupCard3", { opacity: 0, x: -30 });
+
+            // Entrada coordinada: inicia justo cuando los navItems del menú están por terminar (-=0.2s)
+            const heroStartTime = isDesktop ? "-=0.2" : "0";
+
+            masterTL.to(heroElements, {
+                duration: 0.8,
                 opacity: 1,
-                scale: 1,
-                ease: "back.out(2)"
-            });
-
-            // PASO 2: El círculo se expande suavemente a los lados transformándose en la cápsula completa
-            masterTL.to(centerCapsule, {
-                duration: 0.75,
-                width: targetWidth,
-                paddingLeft: "1rem",
-                paddingRight: "1rem",
-                ease: "elastic.out(1, 0.75)"
-            }, "-=0.1");
-
-            // PASO 3: Salen las lengüetas laterales desde los costados
-            masterTL.to([leftSocket, rightSocket], {
-                duration: 0.6,
+                y: 0,
+                stagger: 0.15,
+                ease: "power3.out"
+            }, heroStartTime)
+            .to("#heroMockup", {
+                duration: 1,
+                opacity: 1,
                 x: 0,
-                opacity: 1,
-                scaleX: 1,
-                stagger: 0.05,
-                ease: "back.out(1.5)"
-            }, "-=0.45");
-
-            // PASO 4: Aparecen el Logo (izquierda) y el Botón de presupuesto (derecha)
-            masterTL.to([leftContent, rightContent], {
-                duration: 0.4,
-                opacity: 1,
-                scale: 1,
                 y: 0,
-                stagger: 0.1,
-                ease: "power2.out"
-            }, "-=0.3");
-
-            // PASO 5: Se revelan en cascada los ítems del menú con rebote individual
-            masterTL.to(navItems, {
-                duration: 0.45,
+                ease: "power3.out"
+            }, "-=0.6")
+            // Entrada secuencial de las tarjetas internas del mockup
+            .to("#mockupCard1", {
+                duration: 0.6,
                 opacity: 1,
-                scale: 1,
-                y: 0,
-                stagger: 0.07,
-                ease: "back.out(2)"
-            }, "-=0.25");
+                x: -16, // offset final original (-translate-x-4)
+                ease: "back.out(1.2)"
+            }, "-=0.3")
+            .to("#mockupCard2", {
+                duration: 0.6,
+                opacity: 1,
+                x: 16, // offset final original (translate-x-4)
+                ease: "back.out(1.2)"
+            }, "-=0.4")
+            .to("#mockupCard3", {
+                duration: 0.6,
+                opacity: 0.8, // opacity final original (opacity-80)
+                x: -8, // offset final original (-translate-x-2)
+                ease: "back.out(1.2)"
+            }, "-=0.4");
         }
 
         // Ejecutar animación cuando la página carga completamente
@@ -247,3 +337,245 @@
                 }
             });
         }
+
+        /* Lógica de Animación y Ordenamiento para Sección Servicios (.arch) */
+        window.addEventListener('DOMContentLoaded', () => {
+            const archRight = document.querySelector('.arch__right');
+            if (!archRight) return; // Si no estamos en la página con servicios, salir
+
+            // Set z-index for images
+            document.querySelectorAll(".arch__right .img-wrapper").forEach((element) => {
+                const order = element.getAttribute("data-index");
+                if (order !== null) {
+                    element.style.zIndex = order;
+                }
+            });
+
+            // Mobile layout handler (only handle order)
+            function handleMobileLayout() {
+                const isMobile = window.matchMedia("(max-width: 768px)").matches;
+                const leftItems = gsap.utils.toArray(".arch__left .arch__info");
+                const rightItems = gsap.utils.toArray(".arch__right .img-wrapper");
+
+                if (isMobile) {
+                    // Interleave items using order
+                    leftItems.forEach((item, i) => {
+                        item.style.order = i * 2;
+                    });
+                    rightItems.forEach((item, i) => {
+                        item.style.order = i * 2 + 1;
+                    });
+                } else {
+                    // Clear order for desktop
+                    leftItems.forEach((item) => {
+                        item.style.order = "";
+                    });
+                    rightItems.forEach((item) => {
+                        item.style.order = "";
+                    });
+                }
+            }
+
+            // Debounce resize for performance
+            let resizeTimeout;
+            window.addEventListener("resize", () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(handleMobileLayout, 100);
+            });
+
+            // Run on initial load
+            handleMobileLayout();
+
+            const imgs = gsap.utils.toArray(".img-wrapper img");
+
+            // GSAP Animation with Media Query
+            ScrollTrigger.matchMedia({
+                "(min-width: 769px)": function () {
+                    const mainTimeline = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: ".arch",
+                            start: "top 70px",
+                            end: "bottom bottom",
+                            pin: ".arch__right",
+                            scrub: true
+                        }
+                    });
+
+                    gsap.set(imgs, {
+                        clipPath: "inset(0)",
+                        objectPosition: "0px 0%"
+                    });
+
+                    imgs.forEach((_, index) => {
+                        const currentImage = imgs[index];
+                        const nextImage = imgs[index + 1] ? imgs[index + 1] : null;
+
+                        const sectionTimeline = gsap.timeline();
+
+                        if (nextImage) {
+                            sectionTimeline
+                                .to(
+                                    "#servicios",
+                                    {
+                                        backgroundColor: () => document.documentElement.classList.contains('dark') 
+                                            ? ["#1e293b", "#0f172a", "#1e1b4b"][index] 
+                                            : ["#EDF9FF", "#FFECF2", "#FFE8DB"][index],
+                                        duration: 1.5,
+                                        ease: "power2.inOut"
+                                    },
+                                    0
+                                )
+                                .to(
+                                    currentImage,
+                                    {
+                                        clipPath: "inset(0px 0px 100%)",
+                                        objectPosition: "0px 60%",
+                                        duration: 1.5,
+                                        ease: "none"
+                                    },
+                                    0
+                                )
+                                .to(
+                                    nextImage,
+                                    {
+                                        objectPosition: "0px 40%",
+                                        duration: 1.5,
+                                        ease: "none"
+                                    },
+                                    0
+                                );
+                        }
+
+                        mainTimeline.add(sectionTimeline);
+                    });
+                },
+                "(max-width: 768px)": function () {
+                    /* INACTIVADO MOMENTÁNEAMENTE: anterior efecto móvil
+                    const mobileCards = gsap.utils.toArray(".mobile-service-card");
+                    const totalMobileCards = mobileCards.length;
+
+                    if (totalMobileCards === 0) return;
+
+                    gsap.set(mobileCards[0], { y: "0%", scale: 1, rotation: 0, opacity: 1, pointerEvents: "auto" });
+                    for (let i = 1; i < totalMobileCards; i++) {
+                        gsap.set(mobileCards[i], { y: "130%", scale: 1, rotation: 0, opacity: 0, pointerEvents: "none" });
+                    }
+
+                    const mobileTimeline = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: ".mobile-sticky-trigger",
+                            start: "top 70px",
+                            end: () => `+=${window.innerHeight * (totalMobileCards - 1)}`,
+                            pin: true,
+                            scrub: 0.5,
+                            pinSpacing: true,
+                        }
+                    });
+
+                    for (let i = 0; i < totalMobileCards - 1; i++) {
+                        const currentCard = mobileCards[i];
+                        const nextCard = mobileCards[i + 1];
+                        const position = i;
+
+                        mobileTimeline.to(
+                            currentCard,
+                            {
+                                scale: 0.7,
+                                rotation: 5,
+                                pointerEvents: "none",
+                                duration: 1,
+                                ease: "none"
+                            },
+                            position
+                        );
+
+                        mobileTimeline.to(
+                            nextCard,
+                            {
+                                y: "0%",
+                                opacity: 1,
+                                pointerEvents: "auto",
+                                duration: 1,
+                                ease: "none"
+                            },
+                            position
+                        );
+
+                        mobileTimeline.to(
+                            "#servicios",
+                            {
+                                backgroundColor: () => document.documentElement.classList.contains('dark') 
+                                    ? ["#1e293b", "#0f172a", "#1e1b4b"][i] 
+                                    : ["#EDF9FF", "#FFECF2", "#FFE8DB"][i],
+                                duration: 1,
+                                ease: "power2.inOut"
+                            },
+                            position
+                        );
+                    }
+
+                    const resizeObserver = new ResizeObserver(() => {
+                        ScrollTrigger.refresh();
+                    });
+                    
+                    const triggerContainer = document.querySelector(".mobile-services-container");
+                    if (triggerContainer) {
+                        resizeObserver.observe(triggerContainer);
+                    }
+
+                    return () => {
+                        resizeObserver.disconnect();
+                    };
+                    */
+
+                    // NUEVO EFECTO CARD STACKING ALTERNATIVO
+                    let cards = gsap.utils.toArray(".stackCard");
+                    if (cards.length === 0) return;
+
+                    let stickDistance = 0;
+
+                    let firstCardST = ScrollTrigger.create({
+                        trigger: cards[0],
+                        start: "center center"
+                    });
+
+                    let lastCardST = ScrollTrigger.create({
+                        trigger: cards[cards.length - 1],
+                        start: "center center"
+                    });
+
+                    let createdTriggers = [];
+
+                    cards.forEach((card, index) => {
+                        var scale = 1 - (cards.length - index) * 0.025;
+                        
+                        // Obtenemos el origen dinámico
+                        let scaleDown = gsap.to(card, {
+                            scale: scale, 
+                            'transform-origin': `50% ${lastCardST.start + stickDistance}px`
+                        });
+
+                        let trigger = ScrollTrigger.create({
+                            trigger: card,
+                            start: "center center",
+                            end: () => lastCardST.start + stickDistance,
+                            pin: true,
+                            markers: false, // markers desactivados
+                            pinSpacing: false,
+                            ease: "none",
+                            animation: scaleDown,
+                            toggleActions: "restart none none reverse"
+                        });
+                        
+                        createdTriggers.push(trigger);
+                    });
+
+                    // Devolvemos una función de limpieza para desmontar los disparadores en caso de cambiar de resolución
+                    return () => {
+                        firstCardST.kill();
+                        lastCardST.kill();
+                        createdTriggers.forEach(t => t.kill());
+                    };
+                }
+            });
+        });

@@ -98,3 +98,25 @@ details[open] .faq-icon {
     -webkit-mask-image: radial-gradient(circle at 0% 50%, transparent 25.5px, #000 26px);
     mask-image: radial-gradient(circle at 0% 50%, transparent 25.5px, #000 26px);
 }
+
+/* Lenis smooth scroll specific styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

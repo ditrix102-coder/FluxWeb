@@ -1,6 +1,6 @@
 ---
 ---
-<section id="servicios" class="py-24 bg-background">
+<section id="servicios" class="py-24 transition-colors duration-500">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
             <h2 class="text-sm font-bold tracking-wider text-brand uppercase mb-3">Qué Hacemos</h2>
@@ -8,48 +8,332 @@
             <p class="text-secondaryText text-lg">No te vendemos código. Te instalamos sistemas diseñados exclusivamente para ahorrarte tiempo y generar ingresos de forma constante.</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <div class="bg-surface rounded-2xl p-8 border border-borderLight shadow-sm hover:shadow-premium-hover hover:-translate-y-2 smooth-transition flex flex-col" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-14 h-14 rounded-xl bg-blue-50 text-brand flex items-center justify-center mb-6">
-                    <i data-lucide="globe" class="w-7 h-7"></i>
-                </div>
-                <h4 class="text-xl font-bold text-primaryText mb-3">Páginas Web que Venden</h4>
-                <p class="text-secondaryText mb-6 flex-grow">Tu sucursal digital abierta 24/7. Diseñamos espacios que transmiten confianza total y guían al visitante a convertirse en cliente de forma natural, sin que tú tengas que intervenir.</p>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-start gap-2 text-sm text-primaryText"><i data-lucide="check-circle-2" class="w-5 h-5 text-accent shrink-0"></i> Diseño impecable y profesional.</li>
-                    <li class="flex items-start gap-2 text-sm text-primaryText"><i data-lucide="check-circle-2" class="w-5 h-5 text-accent shrink-0"></i> Adaptadas a celulares perfectamente.</li>
-                    <li class="flex items-start gap-2 text-sm text-primaryText"><i data-lucide="check-circle-2" class="w-5 h-5 text-accent shrink-0"></i> Fáciles de administrar.</li>
-                </ul>
-            </div>
+        <!-- Versión de Escritorio (Desktop only) -->
+        <div class="hidden md:block">
+            <div class="container-arch">
+                <div class="spacer-arch"></div>
 
-            <!-- Card 2 -->
-            <div class="bg-surface rounded-2xl p-8 border border-borderLight shadow-sm hover:shadow-premium-hover hover:-translate-y-2 smooth-transition flex flex-col" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-14 h-14 rounded-xl bg-green-50 text-accent flex items-center justify-center mb-6">
-                    <i data-lucide="workflow" class="w-7 h-7"></i>
-                </div>
-                <h4 class="text-xl font-bold text-primaryText mb-3">Automatización de Negocios</h4>
-                <p class="text-secondaryText mb-6 flex-grow">Olvídate de las tareas manuales y repetitivas. Conectamos tus redes sociales, emails y bases de datos para que la gestión de clientes suceda sola.</p>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-start gap-2 text-sm text-primaryText"><i data-lucide="check-circle-2" class="w-5 h-5 text-accent shrink-0"></i> Captación automática de contactos.</li>
-                    <li class="flex items-start gap-2 text-sm text-primaryText"><i data-lucide="check-circle-2" class="w-5 h-5 text-accent shrink-0"></i> Envío de presupuestos solo.</li>
-                    <li class="flex items-start gap-2 text-sm text-primaryText"><i data-lucide="check-circle-2" class="w-5 h-5 text-accent shrink-0"></i> Ahorro real de horas a la semana.</li>
-                </ul>
-            </div>
+                <div class="arch">
+                    <div class="arch__left">
+                        <div class="arch__info" id="green-arch">
+                            <div class="content" data-aos="fade-right">
+                                <h4 class="header">Páginas Web</h4>
+                                <p class="desc">Tu sucursal digital abierta 24/7. Diseñamos espacios que transmiten confianza total y guían al visitante a convertirse en cliente de forma natural, sin que tengas que intervenir.</p>
+                                <a class="link hover:scale-105 smooth-transition" href="#contacto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                        <path fill="#121212" d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                                    </svg>
+                                    <span>Saber Más</span>
+                                </a>
+                            </div>
+                        </div>
 
-            <!-- Card 3 -->
-            <div class="bg-surface rounded-2xl p-8 border border-borderLight shadow-sm hover:shadow-premium-hover hover:-translate-y-2 smooth-transition flex flex-col" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-14 h-14 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-6">
-                    <i data-lucide="bot" class="w-7 h-7"></i>
+                        <div class="arch__info" id="blue-arch">
+                            <div class="content" data-aos="fade-right">
+                                <h4 class="header">Automatización</h4>
+                                <p class="desc">Olvídate de las tareas manuales y repetitivas. Conectamos tus redes sociales, correos y bases de datos para que la gestión y captación de clientes suceda sola.</p>
+                                <a class="link hover:scale-105 smooth-transition" href="#contacto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                        <path fill="#121212" d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                                    </svg>
+                                    <span>Saber Más</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="arch__info" id="pink-arch">
+                            <div class="content" data-aos="fade-right">
+                                <h4 class="header">Inteligencia Artificial</h4>
+                                <p class="desc">Implementamos asistentes virtuales inteligentes que atienden a tus clientes como lo harías tú, respondiendo dudas y agendando citas en WhatsApp a cualquier hora.</p>
+                                <a class="link hover:scale-105 smooth-transition" href="#contacto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none">
+                                        <path fill="#121212" d="M5 2c0 1.105-1.895 2-3 2a2 2 0 1 1 0-4c1.105 0 3 .895 3 2ZM11 3.5c0 1.105-.895 3-2 3s-2-1.895-2-3a2 2 0 1 1 4 0ZM6 9a2 2 0 1 1-4 0c0-1.105.895-3 2-3s2 1.895 2 3Z" />
+                                    </svg>
+                                    <span>Saber Más</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arch__right">
+                        <div class="img-wrapper" data-index="3">
+                            <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/cu8978xjlsjjpjk52ta0.webp" alt="Páginas Web que Venden">
+                        </div>
+
+                        <div class="img-wrapper" data-index="2">
+                            <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/trh7c8ufv1dqfrofdytd.webp" alt="Automatización de Negocios">
+                        </div>
+
+                        <div class="img-wrapper" data-index="1">
+                            <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/aw6qwur0pggp5r03whjq.webp" alt="Inteligencia Artificial">
+                        </div>
+                    </div>
                 </div>
-                <h4 class="text-xl font-bold text-primaryText mb-3">Inteligencia Artificial</h4>
-                <p class="text-secondaryText mb-6 flex-grow">Implementamos asistentes virtuales inteligentes que atienden a tus clientes como lo harías tú, respondiendo dudas y cerrando citas a cualquier hora del día.</p>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-start gap-2 text-sm text-primaryText"><i data-lucide="check-circle-2" class="w-5 h-5 text-accent shrink-0"></i> Respuestas instantáneas en WhatsApp.</li>
-                    <li class="flex items-start gap-2 text-sm text-primaryText"><i data-lucide="check-circle-2" class="w-5 h-5 text-accent shrink-0"></i> Clasifica a los curiosos de los compradores.</li>
-                    <li class="flex items-start gap-2 text-sm text-primaryText"><i data-lucide="check-circle-2" class="w-5 h-5 text-accent shrink-0"></i> Atención impecable 24/7.</li>
-                </ul>
+
+                <div class="spacer-arch"></div>
             </div>
+        </div>
+
+        <!-- Versión de Celulares (Mobile only) - INACTIVADA MOMENTÁNEAMENTE -->
+        <!--
+        <div class="block md:hidden">
+            <div class="mobile-services-container relative w-full overflow-hidden py-10">
+                <div class="mobile-sticky-trigger relative flex h-[75vh] w-full items-center justify-center overflow-hidden px-4">
+                    <div class="relative h-[480px] w-full max-w-sm">
+                        <div class="mobile-service-card absolute inset-0 w-full h-full bg-surface border border-borderLight rounded-3xl p-6 shadow-xl flex flex-col justify-between" data-index="0">
+                            <div class="h-44 w-full rounded-2xl overflow-hidden mb-4 shadow-md">
+                                <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/cu8978xjlsjjpjk52ta0.webp" class="w-full h-full object-cover" alt="Páginas Web" />
+                            </div>
+                            <div class="flex-grow flex flex-col justify-center">
+                                <h4 class="text-2xl font-bold text-primaryText">Páginas Web</h4>
+                                <p class="text-secondaryText text-sm mt-2 leading-relaxed">Tu sucursal digital abierta 24/7. Diseñamos espacios que guían al visitante a convertirse en cliente de forma natural.</p>
+                            </div>
+                            <div class="mt-4">
+                                <a href="#contacto" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#7DD6FF] text-[#121212] font-semibold text-sm hover:scale-105 transition-transform shadow-md">
+                                    <span>Saber Más</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="mobile-service-card absolute inset-0 w-full h-full bg-surface border border-borderLight rounded-3xl p-6 shadow-xl flex flex-col justify-between" data-index="1">
+                            <div class="h-44 w-full rounded-2xl overflow-hidden mb-4 shadow-md">
+                                <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/trh7c8ufv1dqfrofdytd.webp" class="w-full h-full object-cover" alt="Automatizaciones" />
+                            </div>
+                            <div class="flex-grow flex flex-col justify-center">
+                                <h4 class="text-2xl font-bold text-primaryText">Automatización</h4>
+                                <p class="text-secondaryText text-sm mt-2 leading-relaxed">Olvídate de las tareas repetitivas. Conectamos tus redes, correos y bases de datos para que la captación suceda sola.</p>
+                            </div>
+                            <div class="mt-4">
+                                <a href="#contacto" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FFA0B0] text-[#121212] font-semibold text-sm hover:scale-105 transition-transform shadow-md">
+                                    <span>Saber Más</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="mobile-service-card absolute inset-0 w-full h-full bg-surface border border-borderLight rounded-3xl p-6 shadow-xl flex flex-col justify-between" data-index="2">
+                            <div class="h-44 w-full rounded-2xl overflow-hidden mb-4 shadow-md">
+                                <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/aw6qwur0pggp5r03whjq.webp" class="w-full h-full object-cover" alt="Inteligencia Artificial" />
+                            </div>
+                            <div class="flex-grow flex flex-col justify-center">
+                                <h4 class="text-2xl font-bold text-primaryText">Inteligencia Artificial</h4>
+                                <p class="text-secondaryText text-sm mt-2 leading-relaxed">Implementamos asistentes virtuales inteligentes que atienden a tus clientes en WhatsApp, respondiendo dudas y agendando citas 24/7.</p>
+                            </div>
+                            <div class="mt-4">
+                                <a href="#contacto" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#D5FF37] text-[#121212] font-semibold text-sm hover:scale-105 transition-transform shadow-md">
+                                    <span>Saber Más</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <!-- NUEVA Versión de Celulares (Efecto Card Stacking alternativo) -->
+        <div class="block md:hidden">
+            <section class="cardStacking">
+                <div class="container mx-auto px-4">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="cardStacking__cards flex flex-col gap-10">  
+                                <!-- Card 1: Páginas Web -->
+                                <div class="stackCard flex flex-col justify-between shadow-2xl" style="background-color: #7DD6FF;">
+                                    <div class="h-44 w-full rounded-2xl overflow-hidden mb-4 shadow-md">
+                                        <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/cu8978xjlsjjpjk52ta0.webp" class="w-full h-full object-cover" alt="Páginas Web" />
+                                    </div>
+                                    <div class="flex-grow flex flex-col justify-center">
+                                        <h4 class="text-2xl font-bold text-[#121212]">Páginas Web</h4>
+                                        <p class="text-slate-800 text-sm mt-2 leading-relaxed">Tu sucursal digital abierta 24/7. Diseñamos espacios que guían al visitante a convertirse en cliente de forma natural.</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <a href="#contacto" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 text-white font-semibold text-sm hover:scale-105 transition-transform shadow-md">
+                                            <span>Saber Más</span>
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2: Automatización -->
+                                <div class="stackCard flex flex-col justify-between shadow-2xl" style="background-color: #FFA0B0;">
+                                    <div class="h-44 w-full rounded-2xl overflow-hidden mb-4 shadow-md">
+                                        <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/trh7c8ufv1dqfrofdytd.webp" class="w-full h-full object-cover" alt="Automatizaciones" />
+                                    </div>
+                                    <div class="flex-grow flex flex-col justify-center">
+                                        <h4 class="text-2xl font-bold text-[#121212]">Automatización</h4>
+                                        <p class="text-slate-800 text-sm mt-2 leading-relaxed">Olvídate de las tareas repetitivas. Conectamos tus redes, correos y bases de datos para que la captación suceda sola.</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <a href="#contacto" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 text-white font-semibold text-sm hover:scale-105 transition-transform shadow-md">
+                                            <span>Saber Más</span>
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3: Inteligencia Artificial -->
+                                <div class="stackCard flex flex-col justify-between shadow-2xl" style="background-color: #D5FF37;">
+                                    <div class="h-44 w-full rounded-2xl overflow-hidden mb-4 shadow-md">
+                                        <img src="https://ik.imagekit.io/kg2nszxjp/GSAP%20pinned%20image%20mask%20reveal%20on%20scroll/aw6qwur0pggp5r03whjq.webp" class="w-full h-full object-cover" alt="Inteligencia Artificial" />
+                                    </div>
+                                    <div class="flex-grow flex flex-col justify-center">
+                                        <h4 class="text-2xl font-bold text-[#121212]">Inteligencia Artificial</h4>
+                                        <p class="text-slate-800 text-sm mt-2 leading-relaxed">Implementamos asistentes virtuales inteligentes que atienden a tus clientes en WhatsApp, respondiendo dudas y agendando citas 24/7.</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <a href="#contacto" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 text-white font-semibold text-sm hover:scale-105 transition-transform shadow-md">
+                                            <span>Saber Más</span>
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 </section>
+
+<style>
+.container-arch {
+  width: 100%;
+}
+
+.spacer-arch {
+  width: 100%;
+  height: 10vh;
+}
+
+.arch {
+  display: flex;
+  gap: 60px;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.arch__left {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.arch__left .arch__info {
+  max-width: 420px;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.arch__left .arch__info h4.header {
+  font-family: 'Inter', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.84px;
+  color: var(--color-primaryText);
+}
+
+.arch__left .arch__info p.desc {
+  color: var(--color-secondaryText);
+  font-size: 17px;
+  letter-spacing: -0.3px;
+  margin-block: 12px 28px;
+  line-height: 1.6;
+}
+
+.arch__left .arch__info a.link {
+  text-decoration: none;
+  padding: 14px 22px;
+  color: #121212;
+  font-weight: 600;
+  border-radius: 40px;
+  display: flex;
+  gap: 8px;
+  width: fit-content;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+#green-arch a.link {
+  background-color: #7DD6FF;
+}
+
+#blue-arch a.link {
+  background-color: #FFA0B0;
+}
+
+#pink-arch a.link {
+  background-color: #D5FF37;
+}
+
+.arch__right {
+  flex-shrink: 1;
+  height: 100vh;
+  width: 100%;
+  max-width: 540px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.arch__right .img-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 410px;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.arch__right .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Estilos específicos para la versión móvil de tarjetas apilables */
+.mobile-services-container {
+  width: 100%;
+}
+
+.mobile-sticky-trigger {
+  width: 100%;
+}
+
+.mobile-service-card {
+  width: 100%;
+  height: 100%;
+  will-change: transform, opacity;
+  box-sizing: border-box;
+}
+
+/* NUEVOS ESTILOS CARD STACKING ALTERNATIVO */
+.cardStacking {
+  overflow: hidden;
+  padding: 60px 0;
+}
+
+.cardStacking .stackCard {
+  border-radius: 30px;
+  position: relative;
+  width: 100%;
+  min-height: 450px;
+  padding: 60px 35px;
+  transform-origin: 50% -160%;
+}
+
+@media (max-width: 900px) {
+  .arch {
+    gap: 30px;
+  }
+}
+</style>

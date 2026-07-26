@@ -16,7 +16,10 @@
 
         <!-- 2. CÁPSULA CENTRAL: Menú de navegación -->
         <nav id="centerCapsule" class="relative bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-600 text-white shadow-xl shadow-indigo-500/20 h-[52px] px-4 rounded-full flex items-center justify-center space-x-1 z-20 border border-indigo-400/40 shrink-0 overflow-hidden">
-            <a href="#servicios" onclick="selectNavItem(this, event)" class="nav-item active bg-white/20 text-white font-semibold px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
+            <a href="#inicio" onclick="selectNavItem(this, event)" class="nav-item active bg-white/20 text-white font-semibold px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
+                Inicio
+            </a>
+            <a href="#servicios" onclick="selectNavItem(this, event)" class="nav-item text-indigo-100 hover:bg-white/10 hover:text-white font-medium px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
                 Servicios
             </a>
             <a href="#beneficios" onclick="selectNavItem(this, event)" class="nav-item text-indigo-100 hover:bg-white/10 hover:text-white font-medium px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
@@ -27,9 +30,6 @@
             </a>
             <a href="#trabajos" onclick="selectNavItem(this, event)" class="nav-item text-indigo-100 hover:bg-white/10 hover:text-white font-medium px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
                 Trabajos
-            </a>
-            <a href="#faq" onclick="selectNavItem(this, event)" class="nav-item text-indigo-100 hover:bg-white/10 hover:text-white font-medium px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
-                Preguntas
             </a>
         </nav>
 
@@ -83,11 +83,11 @@
     </button>
 
     <nav class="flex flex-col space-y-5 text-center">
+        <a href="#inicio" class="mobile-nav-item text-2xl text-slate-300 hover:text-white font-medium transition-colors py-2">Inicio</a>
         <a href="#servicios" class="mobile-nav-item text-2xl text-slate-300 hover:text-white font-medium transition-colors py-2">Servicios</a>
         <a href="#beneficios" class="mobile-nav-item text-2xl text-slate-300 hover:text-white font-medium transition-colors py-2">Beneficios</a>
         <a href="#proceso" class="mobile-nav-item text-2xl text-slate-300 hover:text-white font-medium transition-colors py-2">Proceso</a>
         <a href="#trabajos" class="mobile-nav-item text-2xl text-slate-300 hover:text-white font-medium transition-colors py-2">Trabajos</a>
-        <a href="#faq" class="mobile-nav-item text-2xl text-slate-300 hover:text-white font-medium transition-colors py-2">Preguntas</a>
         <div class="pt-4 border-t border-slate-700 mt-2">
             <a href="#contacto" class="mobile-nav-item inline-flex items-center gap-2 text-lg text-white bg-indigo-600 hover:bg-indigo-500 font-semibold px-8 py-3 rounded-full transition-colors">
                 Solicitar presupuesto

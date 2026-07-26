@@ -1,0 +1,120 @@
+# Resumen de mi situación y objetivo
+
+Quiero cambiar de rumbo profesional porque estaba estudiando una carrera técnica a distancia y la desaprobé. Ahora busco una profesión que cumpla con estas condiciones:
+
+* No depender de un título universitario largo.
+* Poder aprender completamente a distancia.
+* Tener posibilidad de trabajar remoto.
+* Tener buena salida laboral y buenos salarios.
+* Poder empezar a generar ingresos relativamente rápido.
+
+## Tiempo disponible
+
+Puedo estudiar aproximadamente **4 horas por día, de lunes a viernes** (20 horas semanales).
+
+## Objetivo principal
+
+Quiero encontrar un trabajo que me permita decirle a mi mamá que ya conseguí empleo y demostrarle que elegí un camino con futuro. No busco hacerme rico de un día para el otro, pero sí quiero resultados relativamente rápidos sin elegir un camino poco realista.
+
+## Camino elegido
+
+Después de analizar distintas opciones (IA, automatización, QA Automation, backend, etc.), decidí que quiero enfocarme principalmente en:
+
+**Python + Desarrollo Backend**
+
+Porque:
+
+* Tiene muchas oportunidades laborales.
+* Comparte conocimientos con QA Automation.
+* Permite hacer trabajos freelance.
+* Más adelante puedo especializarme en IA, automatización o DevOps.
+
+## Roadmap aproximado
+
+1. Python.
+2. Git y GitHub.
+3. SQL.
+4. FastAPI.
+5. PostgreSQL.
+6. Docker.
+7. Linux.
+8. AWS básico.
+9. Inglés.
+
+## Estrategia
+
+No quiero esperar un año para buscar trabajo.
+
+La idea es:
+
+* Construir proyectos desde el principio.
+* Crear un portfolio en GitHub.
+* Empezar a postularme a empleos junior cuando tenga una base sólida.
+* Buscar también trabajos freelance pequeños para ganar experiencia.
+
+## Freelance
+
+Quiero investigar plataformas como:
+
+* Upwork.
+* Freelancer.
+* Fiverr.
+* Workana.
+
+También quiero mirar qué proyectos publican para aprender exactamente las tecnologías que están pidiendo.
+
+## Empleo
+
+Quiero revisar ofertas de trabajo buscando términos como:
+
+* Junior Backend Developer.
+* Python Developer.
+* Backend Python.
+* Junior Software Developer.
+* Backend Engineer.
+
+Y hacer una lista de las tecnologías que más aparecen para priorizar mi aprendizaje.
+
+## Inglés
+
+Voy a estudiar inglés en paralelo con programación.
+
+Objetivo inicial:
+
+**Nivel B1.**
+
+Plan diario:
+
+* Duolingo.
+* Videos de YouTube.
+* Leer documentación técnica en inglés.
+* Acostumbrarme a usar el celular y herramientas en inglés.
+
+## Forma de estudiar
+
+Cada día aproximadamente:
+
+* 2 horas aprendiendo contenido nuevo.
+* 1 hora resolviendo ejercicios.
+* 1 hora desarrollando proyectos.
+
+No quiero limitarme a mirar cursos; quiero construir cosas reales desde el principio.
+
+## Lo que espero cuando retomemos esta conversación
+
+Quiero que me ayudes como si fueras un mentor.
+
+Necesito que:
+
+* Me armes un roadmap detallado.
+* Me recomiendes recursos gratuitos y de calidad.
+* Me des ejercicios.
+* Me propongas proyectos para GitHub.
+* Me prepares para entrevistas.
+* Me indiques cuándo ya estoy listo para empezar a postularme.
+* Me ayudes a construir un portfolio competitivo.
+* Me señales si estoy perdiendo tiempo estudiando algo que no aporta valor para conseguir trabajo.
+
+Mi objetivo final es conseguir un empleo remoto o híbrido como desarrollador backend con Python y seguir creciendo profesionalmente desde ahí.
+
+Ese resumen es un muy buen punto de partida. Solo agregaría una recomendación para el futuro: **cuando vuelvas, decime también en qué semana o mes del plan estás** (por ejemplo: "Estoy en la semana 5, ya terminé funciones y POO en Python"). Así podremos continuar exactamente desde donde lo dejaste, sin repetir contenido y ajustando el plan según tu progreso.
