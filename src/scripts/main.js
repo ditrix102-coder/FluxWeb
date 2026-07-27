@@ -255,13 +255,98 @@ window.selectNavItem = function(element, event) {
             }, "-=0.4");
         }
 
-        // Ejecutar animación cuando la página carga completamente
-        window.addEventListener('DOMContentLoaded', () => {
-            // Solo animar si estamos en escritorio (lg: >= 1024px)
+        function initAsesoriaButton() {
+            const btnAsesoria = document.getElementById('btn-asesoria');
+            const btnText = document.getElementById('btn-asesoria-text');
+            const btnProgress = document.getElementById('btn-asesoria-progress');
+            
+            if (btnAsesoria && btnText && btnProgress) {
+                let isAnimating = false;
+                let countdownInterval;
+                
+                btnAsesoria.addEventListener('click', (e) => {
+                    if (isAnimating) {
+                        e.preventDefault();
+                        return;
+                    }
+                    
+                    e.preventDefault();
+                    isAnimating = true;
+                    
+                    btnAsesoria.style.pointerEvents = 'none';
+                    
+                    btnProgress.style.transition = 'none';
+                    btnProgress.style.width = '0%';
+                    btnProgress.getBoundingClientRect(); // Force reflow
+                    btnProgress.style.transition = 'width 4000ms linear';
+                    btnProgress.style.width = '100%';
+                    
+                    const svg = btnAsesoria.querySelector('svg');
+                    if (svg) {
+                        svg.classList.remove('rotate-45');
+                        svg.classList.add('animate-spin');
+                    }
+                    
+                    let timeLeft = 4;
+                    btnText.textContent = `Agendando en ${timeLeft}s...`;
+                    
+                    countdownInterval = setInterval(() => {
+                        timeLeft -= 1;
+                        if (timeLeft > 0) {
+                            btnText.textContent = `Agendando en ${timeLeft}s...`;
+                        } else {
+                            clearInterval(countdownInterval);
+                            btnText.textContent = '¡Listo!';
+                            
+                            setTimeout(() => {
+                                isAnimating = false;
+                                btnAsesoria.style.pointerEvents = 'auto';
+                                btnText.textContent = 'Agendar asesoría gratuita';
+                                btnProgress.style.transition = 'none';
+                                btnProgress.style.width = '0%';
+                                if (svg) {
+                                    svg.classList.remove('animate-spin');
+                                    svg.classList.add('rotate-45');
+                                }
+                                
+                                const targetElement = document.querySelector('#contacto');
+                                if (targetElement) {
+                                    if (lenis) {
+                                        lenis.scrollTo(targetElement, {
+                                            offset: -100,
+                                            duration: 1.2
+                                        });
+                                    } else {
+                                        window.scrollTo({
+                                            top: targetElement.offsetTop - 100,
+                                            behavior: 'smooth'
+                                        });
+                                    }
+                                }
+                            }, 500);
+                        }
+                    }, 1000);
+                });
+            }
+        }
+
+        function startPageAnimations() {
             if (window.innerWidth >= 1024) {
                 buildGSAPAnimation();
             }
             initScrollSpy();
+            initAsesoriaButton();
+        }
+
+        // Ejecutar animación cuando la página carga completamente
+        window.addEventListener('DOMContentLoaded', () => {
+            if (sessionStorage.getItem('bootSequencePlayed')) {
+                startPageAnimations();
+            } else {
+                window.addEventListener('boot-complete', () => {
+                    startPageAnimations();
+                });
+            }
         });
 
         // Reconstruir animación si la ventana cambia de tamaño cruzando el umbral
