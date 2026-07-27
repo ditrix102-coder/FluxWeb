@@ -206,18 +206,14 @@ window.selectNavItem = function(element, event) {
             }
 
             // ANIMACIÓN DE LA SECCIÓN DE INICIO (HERO)
-            const heroElements = ["#heroTag", "#heroTitle", "#heroText", "#heroButtons"];
+            const heroElements = ["#heroTitle", "#heroText", "#heroButtons"];
             
             // Ocultamos elementos inicialmente
             gsap.set(heroElements, { opacity: 0, y: 30 });
             gsap.set("#heroMockup", { opacity: 0, x: isDesktop ? 50 : 0, y: isDesktop ? 0 : 30 });
-            
-            // Ocultamos las tarjetas del mockup
-            gsap.set("#mockupCard1", { opacity: 0, x: -50 });
-            gsap.set("#mockupCard2", { opacity: 0, x: 50 });
-            gsap.set("#mockupCard3", { opacity: 0, x: -30 });
+            gsap.set(["#heroGlow1", "#heroGlow2"], { opacity: 0, scale: 0.6 });
 
-            // Entrada coordinada: inicia justo cuando los navItems del menú están por terminar (-=0.2s)
+            // Entrada coordinada
             const heroStartTime = isDesktop ? "-=0.2" : "0";
 
             masterTL.to(heroElements, {
@@ -234,25 +230,13 @@ window.selectNavItem = function(element, event) {
                 y: 0,
                 ease: "power3.out"
             }, "-=0.6")
-            // Entrada secuencial de las tarjetas internas del mockup
-            .to("#mockupCard1", {
-                duration: 0.6,
-                opacity: 1,
-                x: -16, // offset final original (-translate-x-4)
-                ease: "back.out(1.2)"
-            }, "-=0.3")
-            .to("#mockupCard2", {
-                duration: 0.6,
-                opacity: 1,
-                x: 16, // offset final original (translate-x-4)
-                ease: "back.out(1.2)"
-            }, "-=0.4")
-            .to("#mockupCard3", {
-                duration: 0.6,
-                opacity: 0.8, // opacity final original (opacity-80)
-                x: -8, // offset final original (-translate-x-2)
-                ease: "back.out(1.2)"
-            }, "-=0.4");
+            .to(["#heroGlow1", "#heroGlow2"], {
+                duration: 1.2,
+                opacity: 0.5,
+                scale: 1,
+                stagger: 0.2,
+                ease: "power2.out"
+            }, "-=0.3");
         }
 
         function initAsesoriaButton() {
@@ -340,13 +324,7 @@ window.selectNavItem = function(element, event) {
 
         // Ejecutar animación cuando la página carga completamente
         window.addEventListener('DOMContentLoaded', () => {
-            if (sessionStorage.getItem('bootSequencePlayed')) {
-                startPageAnimations();
-            } else {
-                window.addEventListener('boot-complete', () => {
-                    startPageAnimations();
-                });
-            }
+            startPageAnimations();
         });
 
         // Reconstruir animación si la ventana cambia de tamaño cruzando el umbral

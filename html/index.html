@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluxWeb | Inicio - Sección Hero</title>
+    <meta name="description" content="Sección de inicio interactiva y animada para FluxWeb.">
+    
+    <!-- Fuentes: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS para animaciones -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'var(--color-background)',
+                        surface: 'var(--color-surface)',
+                        primaryText: 'var(--color-primary-text)',
+                        secondaryText: 'var(--color-secondary-text)',
+                        brand: 'var(--color-brand)',
+                        accent: 'var(--color-accent)',
+                        borderLight: 'var(--color-border-light)',
+                    },
+                    boxShadow: {
+                        premium: '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        'premium-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos base y utilidades personalizadas -->
+    <style>
+        :root {
+            --color-background: #F8FAFC;
+            --color-surface: #FFFFFF;
+            --color-primary-text: #0F172A;
+            --color-secondary-text: #64748B;
+            --color-brand: #2563EB;
+            --color-accent: #22C55E;
+            --color-border-light: #E2E8F0;
+        }
+
+        html.dark {
+            --color-background: #0f172a;
+            --color-surface: #1e293b;
+            --color-primary-text: #f8fafc;
+            --color-secondary-text: #94a3b8;
+            --color-brand: #3b82f6;
+            --color-accent: #22c55e;
+            --color-border-light: #334155;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            background-color: var(--color-background);
+            color: var(--color-primary-text);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .smooth-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Máscaras cóncavas para el menú cápsula en Desktop */
+        .socket-left {
+            border-radius: 26px 0 0 26px;
+            -webkit-mask-image: radial-gradient(circle at 100% 50%, transparent 25.5px, #000 26px);
+            mask-image: radial-gradient(circle at 100% 50%, transparent 25.5px, #000 26px);
+        }
+
+        .socket-right {
+            border-radius: 0 26px 26px 0;
+            -webkit-mask-image: radial-gradient(circle at 0% 50%, transparent 25.5px, #000 26px);
+            mask-image: radial-gradient(circle at 0% 50%, transparent 25.5px, #000 26px);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-background text-primaryText transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 w-full py-3 px-4 flex justify-center transition-all duration-300" id="navbar">
+        <!-- DESKTOP CAPSULE (Hidden on mobile, visible on lg) -->
+        <div id="capsuleAssembly" class="hidden lg:inline-flex items-center justify-center flex-nowrap -space-x-[26px]">
+            <!-- 1. EXTREMO IZQUIERDO: Logo y Nombre de Marca -->
+            <div id="leftSocket" class="socket-left bg-slate-900 border border-slate-800 h-[52px] pl-6 pr-10 flex items-center z-10 shrink-0 shadow-lg relative">
+                <div id="leftContent" class="socket-content flex items-center space-x-3 w-full">
+                    <div class="w-8 h-8 rounded-full shadow-md shrink-0 overflow-hidden bg-white">
+                        <img src="../public/favicon.png" onerror="this.src='https://placehold.co/32x32/png'" alt="FluxWeb Logo" class="w-full h-full object-cover" />
+                    </div>
+                    <span class="font-bold text-sm tracking-tight text-white whitespace-nowrap">FluxWeb</span>
+                </div>
+            </div>
+
+            <!-- 2. CÁPSULA CENTRAL: Menú de navegación -->
+            <nav id="centerCapsule" class="relative bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-600 text-white shadow-xl shadow-indigo-500/20 h-[52px] px-4 rounded-full flex items-center justify-center space-x-1 z-20 border border-indigo-400/40 shrink-0 overflow-hidden">
+                <a href="#inicio" class="nav-item active bg-white/20 text-white font-semibold px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
+                    Inicio
+                </a>
+                <a href="#servicios" class="nav-item text-indigo-100 hover:bg-white/10 hover:text-white font-medium px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
+                    Servicios
+                </a>
+                <a href="#beneficios" class="nav-item text-indigo-100 hover:bg-white/10 hover:text-white font-medium px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
+                    Beneficios
+                </a>
+                <a href="#proceso" class="nav-item text-indigo-100 hover:bg-white/10 hover:text-white font-medium px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
+                    Proceso
+                </a>
+                <a href="#trabajos" class="nav-item text-indigo-100 hover:bg-white/10 hover:text-white font-medium px-3.5 py-1.5 rounded-full text-xs sm:text-sm transition-all duration-150 whitespace-nowrap">
+                    Trabajos
+                </a>
+            </nav>
+
+            <!-- 3. EXTREMO DERECHO: Botón de Acción -->
+            <div id="rightSocket" class="socket-right bg-slate-900 border border-slate-800 h-[52px] pl-10 pr-6 flex items-center z-10 shrink-0 shadow-lg relative">
+                <div id="rightContent" class="socket-content">
+                    <a href="#contacto" class="px-4 py-1.5 rounded-full bg-indigo-500 hover:bg-indigo-400 text-white text-xs sm:text-sm font-semibold transition-all duration-200 shadow-md shadow-indigo-500/20 flex items-center gap-1.5 whitespace-nowrap active:scale-95">
+                        <span>Solicitar presupuesto</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE HEADER (Visible on sm/md, hidden on lg) -->
+        <div class="lg:hidden w-full flex justify-between items-center bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-2xl p-2 px-4 shadow-xl" id="mobileBar">
+            <a href="#" class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-full shadow-md overflow-hidden bg-white">
+                    <img src="../public/favicon.png" onerror="this.src='https://placehold.co/32x32/png'" alt="FluxWeb Logo" class="w-full h-full object-cover" />
+                </div>
+                <span class="font-bold text-sm tracking-tight text-white">FluxWeb</span>
+            </a>
+
+            <div class="flex items-center gap-2">
+                <a href="#contacto" class="px-4 py-2 rounded-full bg-indigo-500 hover:bg-indigo-400 text-white text-xs font-semibold transition-all duration-200 shadow-md shadow-indigo-500/20 flex items-center gap-1.5 whitespace-nowrap active:scale-95">
+                    <span>Presupuesto</span>
+                </a>
+                <button id="mobileMenuToggle" class="text-white p-2 focus:outline-none hover:bg-slate-800 rounded-lg transition-colors" aria-label="Abrir menú">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobileMenuOverlay" class="fixed inset-0 bg-slate-950/98 backdrop-blur-xl z-[60] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300 lg:hidden">
+        <button id="mobileMenuClose" class="absolute top-5 right-5 text-white p-3 rounded-full bg-slate-800/80 hover:bg-slate-700 transition-colors" aria-label="Cerrar menú">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+
+        <nav class="flex flex-col space-y-5 text-center">
+            <a href="#inicio" class="mobile-nav-item text-2xl text-slate-300 hover:text-white font-medium transition-colors py-2">Inicio</a>
+            <a href="#servicios" class="mobile-nav-item text-2xl text-slate-300 hover:text-white font-medium transition-colors py-2">Servicios</a>
+            <a href="#beneficios" class="mobile-nav-item text-2xl text-slate-300 hover:text-white font-medium transition-colors py-2">Beneficios</a>
+            <a href="#proceso" class="mobile-nav-item text-2xl text-slate-300 hover:text-white font-medium transition-colors py-2">Proceso</a>
+            <a href="#trabajos" class="mobile-nav-item text-2xl text-slate-300 hover:text-white font-medium transition-colors py-2">Trabajos</a>
+            <div class="pt-4 border-t border-slate-700 mt-2">
+                <a href="#contacto" class="mobile-nav-item inline-flex items-center gap-2 text-lg text-white bg-indigo-600 hover:bg-indigo-500 font-semibold px-8 py-3 rounded-full transition-colors">
+                    Solicitar presupuesto
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- MAIN HERO SECTION -->
+    <main class="pt-20" id="inicio">
+        <section class="relative min-h-[calc(100svh-5rem)] flex items-center py-10 lg:py-0">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Copy principal -->
+                    <div class="max-w-2xl" data-aos="fade-right" data-aos-duration="1000">
+                        <h1 id="heroTitle" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-primaryText leading-[1.1] mb-6">
+                            Tu negocio necesita <br>
+                            <span class="text-brand">más clientes</span>,<br>
+                            no más trabajo.
+                        </h1>
+                        
+                        <p id="heroText" class="text-base sm:text-lg lg:text-xl text-secondaryText mb-8 sm:mb-10 leading-relaxed max-w-lg">
+                            Creamos páginas web y automatizaciones que trabajan por ti. Conseguimos que vendas más, ahorres horas de tareas repetitivas y te enfoques en lo que realmente importa.
+                        </p>
+                        
+                        <div id="heroButtons" class="flex flex-col sm:flex-row gap-4">
+                            <a href="#contacto" id="btn-asesoria" class="flex justify-center gap-2 items-center shadow-xl text-sm sm:text-base font-medium bg-brand text-white border-brand border-2 isolation-auto before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-blue-700 hover:text-white before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-6 sm:px-8 py-3.5 sm:py-4 overflow-hidden rounded-full group smooth-transition">
+                                <span id="btn-asesoria-text" class="relative z-10">Agendar asesoría gratuita</span>
+                                <svg class="w-6 h-6 justify-end group-hover:rotate-90 group-hover:bg-white text-white ease-linear duration-300 rounded-full border border-white/30 p-1.5 rotate-45 relative z-10" viewBox="0 0 16 19" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 8.5L0.999999 17.1603L1 0.160251L16 8.5Z" fill="currentColor"/>
+                                </svg>
+                                <div id="btn-asesoria-progress" class="absolute left-0 top-0 bottom-0 bg-blue-500/20 -z-20 w-0"></div>
+                            </a>
+                            
+                            <a href="#servicios" class="flex justify-center items-center shadow-lg text-sm sm:text-base font-medium text-slate-700 dark:text-slate-200 border-borderLight dark:border-slate-800 border bg-surface/50 dark:bg-slate-900/50 hover:bg-surface dark:hover:bg-slate-800 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full smooth-transition group relative overflow-hidden">
+                                <span class="bg-indigo-400 shadow-indigo-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-full opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+                                Ver cómo funciona
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Visual / Mockup con Carrusel Vertical -->
+                    <div id="heroMockup" class="relative lg:ml-auto w-full max-w-lg" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="relative rounded-2xl overflow-hidden shadow-premium bg-[#0B0F19] border border-slate-800/80 aspect-square md:aspect-[4/3] lg:aspect-square flex flex-col">
+                            <!-- Falso header de navegador -->
+                            <div class="h-12 border-b border-slate-800/80 bg-[#131B2E]/60 flex items-center px-4 gap-2">
+                                <div class="flex gap-1.5">
+                                    <div class="w-3 h-3 rounded-full bg-[#FF5F56]"></div>
+                                    <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+                                    <div class="w-3 h-3 rounded-full bg-[#27C93F]"></div>
+                                </div>
+                            </div>
+                            <!-- Contenido del mockup con Carrusel Vertical -->
+                            <div class="flex-1 p-8 flex flex-col justify-center items-center relative bg-gradient-to-br from-slate-950/40 to-[#0B0F19] overflow-hidden">
+                                <div class="relative w-full h-[280px] flex items-center justify-center">
+                                    <!-- Card 1 (Creación de Web 1) -->
+                                    <div class="carousel-item absolute transition-all duration-700 ease-in-out bg-[#131B2E] p-4 rounded-xl shadow-md border border-slate-800/80 flex items-center gap-4 w-[90%] sm:w-[350px]">
+                                        <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0">
+                                            <i data-lucide="layout" class="w-5 h-5"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-semibold text-slate-100">Landing Page de conversión</div>
+                                            <div class="text-xs text-slate-400">Diseñada para convertir visitas en clientes</div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 2 (Automatización 1) -->
+                                    <div class="carousel-item absolute transition-all duration-700 ease-in-out bg-[#131B2E] p-4 rounded-xl shadow-md border border-slate-800/80 flex items-center gap-4 w-[90%] sm:w-[350px]">
+                                        <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent shrink-0">
+                                            <i data-lucide="zap" class="w-5 h-5"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-semibold text-slate-100">Automatización de WhatsApp</div>
+                                            <div class="text-xs text-slate-400">Respuestas y presupuestos al instante</div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 3 (Creación de Web 2) -->
+                                    <div class="carousel-item absolute transition-all duration-700 ease-in-out bg-[#131B2E] p-4 rounded-xl shadow-md border border-slate-800/80 flex items-center gap-4 w-[90%] sm:w-[350px]">
+                                        <div class="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 shrink-0">
+                                            <i data-lucide="globe" class="w-5 h-5"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-semibold text-slate-100">Sitio Web Autoadministrable</div>
+                                            <div class="text-xs text-slate-400">Estructura veloz, moderna y optimizada</div>
+                                        </div>
+                                    </div>
+                                    <!-- Card 4 (Automatización 2) -->
+                                    <div class="carousel-item absolute transition-all duration-700 ease-in-out bg-[#131B2E] p-4 rounded-xl shadow-md border border-slate-800/80 flex items-center gap-4 w-[90%] sm:w-[350px]">
+                                        <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 shrink-0">
+                                            <i data-lucide="calendar" class="w-5 h-5"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-sm font-semibold text-slate-100">Sincronización con Calendario</div>
+                                            <div class="text-xs text-slate-400">Reuniones reservadas solas en tu agenda</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Elementos decorativos de fondo -->
+                        <div id="heroGlow1" class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl opacity-0 scale-75 -z-10 transition-all duration-[1500ms] ease-out"></div>
+                        <div id="heroGlow2" class="absolute -bottom-10 -left-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl opacity-0 scale-75 -z-10 transition-all duration-[1500ms] ease-out"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FLOATING CONTROLS (WhatsApp & Theme Toggle) -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+        <a href="https://wa.me/5492804687998" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-[#25D366] text-white shadow-premium flex items-center justify-center hover:bg-[#20bd5a] hover:scale-110 smooth-transition" aria-label="Contactar por WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+        </a>
+
+        <button id="themeToggle" class="w-12 h-12 rounded-full bg-surface border border-borderLight shadow-premium flex items-center justify-center text-primaryText hover:scale-110 smooth-transition" aria-label="Cambiar tema">
+            <i data-lucide="moon" class="w-5 h-5 dark:hidden block"></i>
+            <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-yellow-500"></i>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Inicializar iconos de Lucide
+        lucide.createIcons();
+
+        // Inicializar animaciones AOS
+        AOS.init({
+            once: true,
+            offset: 50,
+            easing: 'ease-out-cubic',
+        });
+
+        // Lógica del menú móvil
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+
+        function openMenu() {
+            mobileMenuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mobileMenuOverlay.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = '';
+        }
+
+        if (mobileMenuToggle) mobileMenuToggle.addEventListener('click', openMenu);
+        if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMenu);
+        mobileNavItems.forEach(item => item.addEventListener('click', closeMenu));
+
+        // Lógica para Modo Oscuro / Claro
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        // Comprobar preferencia previa o preferencia del sistema
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                if (htmlElement.classList.contains('dark')) {
+                    htmlElement.classList.remove('dark');
+                    localStorage.theme = 'light';
+                } else {
+                    htmlElement.classList.add('dark');
+                    localStorage.theme = 'dark';
+                }
+            });
+        }
+
+        // Lógica del Carrusel
+        (function() {
+            function initCarousel() {
+                const items = document.querySelectorAll('.carousel-item');
+                if (items.length === 0) return;
+                
+                let currentIndex = 0;
+                const totalItems = items.length;
+
+                function updateCarousel() {
+                    items.forEach((item, index) => {
+                        let diff = index - currentIndex;
+                        const half = Math.floor(totalItems / 2);
+                        
+                        if (diff > half) {
+                            diff -= totalItems;
+                        } else if (diff < -half) {
+                            diff += totalItems;
+                        }
+
+                        if (diff === 0) {
+                            item.style.transform = 'translateY(0) scale(1.05)';
+                            item.style.opacity = '1';
+                            item.style.zIndex = '30';
+                            item.style.pointerEvents = 'auto';
+                        } else if (diff === -1) {
+                            item.style.transform = 'translateY(-85px) scale(0.85)';
+                            item.style.opacity = '0.45';
+                            item.style.zIndex = '10';
+                            item.style.pointerEvents = 'none';
+                        } else if (diff === 1) {
+                            item.style.transform = 'translateY(85px) scale(0.85)';
+                            item.style.opacity = '0.45';
+                            item.style.zIndex = '10';
+                            item.style.pointerEvents = 'none';
+                        } else {
+                            if (diff < -1) {
+                                item.style.transform = 'translateY(-170px) scale(0.7)';
+                            } else {
+                                item.style.transform = 'translateY(170px) scale(0.7)';
+                            }
+                            item.style.opacity = '0';
+                            item.style.zIndex = '0';
+                            item.style.pointerEvents = 'none';
+                        }
+                    });
+                }
+
+                updateCarousel();
+
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % totalItems;
+                    updateCarousel();
+                }, 3000);
+            }
+
+            initCarousel();
+
+            // Encender las luces decorativas al final de las animaciones de entrada
+            setTimeout(() => {
+                const glow1 = document.getElementById('heroGlow1');
+                const glow2 = document.getElementById('heroGlow2');
+                if (glow1) {
+                    glow1.classList.remove('opacity-0', 'scale-75');
+                    glow1.classList.add('opacity-50', 'scale-100');
+                }
+                if (glow2) {
+                    glow2.classList.remove('opacity-0', 'scale-75');
+                    glow2.classList.add('opacity-50', 'scale-100');
+                }
+            }, 1200);
+        })();
+    </script>
+</body>
+</html>

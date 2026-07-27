@@ -1,18 +1,12 @@
 ---
 ---
-<section class="relative min-h-[calc(100svh-5rem)] flex items-center py-10 lg:py-0 overflow-hidden">
+<section class="relative min-h-[calc(100svh-5rem)] flex items-center py-10 lg:py-0">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             
             <!-- Copy principal -->
             <div class="max-w-2xl">
-                <div id="heroTag" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-brand text-xs sm:text-sm font-medium mb-6 sm:mb-8">
-                    <span class="relative flex h-2 w-2">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
-                    </span>
-                    Ayudamos a escalar tu negocio
-                </div>
+
                 
                 <h1 id="heroTitle" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-primaryText leading-[1.1] mb-6">
                     Tu negocio necesita <br>
@@ -41,50 +35,135 @@
 
             <!-- Visual / Mockup -->
             <div id="heroMockup" class="relative lg:ml-auto w-full max-w-lg">
-                <div class="relative rounded-2xl overflow-hidden shadow-premium bg-surface border border-borderLight aspect-square md:aspect-[4/3] lg:aspect-square flex flex-col">
+                <div class="relative rounded-2xl overflow-hidden shadow-premium bg-[#0B0F19] border border-slate-800/80 aspect-square md:aspect-[4/3] lg:aspect-square flex flex-col">
                     <!-- Falso header de navegador -->
-                    <div class="h-12 border-b border-borderLight bg-gray-50/50 dark:bg-slate-800/50 flex items-center px-4 gap-2">
+                    <div class="h-12 border-b border-slate-800/80 bg-[#131B2E]/60 flex items-center px-4 gap-2">
                         <div class="flex gap-1.5">
-                            <div class="w-3 h-3 rounded-full bg-gray-300 dark:bg-slate-600"></div>
-                            <div class="w-3 h-3 rounded-full bg-gray-300 dark:bg-slate-600"></div>
-                            <div class="w-3 h-3 rounded-full bg-gray-300 dark:bg-slate-600"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#FF5F56]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#27C93F]"></div>
                         </div>
                     </div>
-                    <!-- Contenido del mockup -->
-                    <div class="flex-1 p-8 flex flex-col justify-center relative bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-slate-900 dark:to-slate-800/30">
-                        <div id="mockupCard1" class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-borderLight mb-4 flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
-                                <i data-lucide="check" class="w-5 h-5"></i>
+                    <!-- Contenido del mockup con Carrusel Vertical -->
+                    <div class="flex-1 p-8 flex flex-col justify-center items-center relative bg-gradient-to-br from-slate-950/40 to-[#0B0F19] overflow-hidden">
+                        <div class="relative w-full h-[280px] flex items-center justify-center">
+                            <!-- Card 1 (Creación de Web 1) -->
+                            <div class="carousel-item absolute transition-all duration-700 ease-in-out bg-[#131B2E] p-4 rounded-xl shadow-md border border-slate-800/80 flex items-center gap-4 w-[90%] sm:w-[350px]">
+                                <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0">
+                                    <i data-lucide="layout" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold text-slate-100">Landing Page de conversión</div>
+                                    <div class="text-xs text-slate-400">Diseñada para convertir visitas en clientes</div>
+                                </div>
                             </div>
-                            <div>
-                                <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Nueva consulta web</div>
-                                <div class="text-xs text-slate-500 dark:text-slate-400">Respondida automáticamente</div>
+                            <!-- Card 2 (Automatización 1) -->
+                            <div class="carousel-item absolute transition-all duration-700 ease-in-out bg-[#131B2E] p-4 rounded-xl shadow-md border border-slate-800/80 flex items-center gap-4 w-[90%] sm:w-[350px]">
+                                <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent shrink-0">
+                                    <i data-lucide="zap" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold text-slate-100">Automatización de WhatsApp</div>
+                                    <div class="text-xs text-slate-400">Respuestas y presupuestos al instante</div>
+                                </div>
                             </div>
-                        </div>
-                        <div id="mockupCard2" class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-borderLight mb-4 flex items-center gap-4 z-10">
-                            <div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center text-brand">
-                                <i data-lucide="calendar" class="w-5 h-5"></i>
+                            <!-- Card 3 (Creación de Web 2) -->
+                            <div class="carousel-item absolute transition-all duration-700 ease-in-out bg-[#131B2E] p-4 rounded-xl shadow-md border border-slate-800/80 flex items-center gap-4 w-[90%] sm:w-[350px]">
+                                <div class="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 shrink-0">
+                                    <i data-lucide="globe" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold text-slate-100">Sitio Web Autoadministrable</div>
+                                    <div class="text-xs text-slate-400">Estructura veloz, moderna y optimizada</div>
+                                </div>
                             </div>
-                            <div>
-                                <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Reunión agendada</div>
-                                <div class="text-xs text-slate-500 dark:text-slate-400">Sin intervención manual</div>
-                            </div>
-                        </div>
-                        <div id="mockupCard3" class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-borderLight flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400">
-                                <i data-lucide="trending-up" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">Venta cerrada</div>
-                                <div class="text-xs text-slate-500 dark:text-slate-400">Factura enviada sola</div>
+                            <!-- Card 4 (Automatización 2) -->
+                            <div class="carousel-item absolute transition-all duration-700 ease-in-out bg-[#131B2E] p-4 rounded-xl shadow-md border border-slate-800/80 flex items-center gap-4 w-[90%] sm:w-[350px]">
+                                <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 shrink-0">
+                                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold text-slate-100">Sincronización con Calendario</div>
+                                    <div class="text-xs text-slate-400">Reuniones reservadas solas en tu agenda</div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+<script is:inline>
+    (function() {
+        function initCarousel() {
+            const items = document.querySelectorAll('.carousel-item');
+            if (items.length === 0) return;
+            
+            let currentIndex = 0;
+            const totalItems = items.length;
+
+            function updateCarousel() {
+                items.forEach((item, index) => {
+                    let diff = index - currentIndex;
+                    const half = Math.floor(totalItems / 2);
+                    
+                    if (diff > half) {
+                        diff -= totalItems;
+                    } else if (diff < -half) {
+                        diff += totalItems;
+                    }
+
+                    if (diff === 0) {
+                        // Active (Middle)
+                        item.style.transform = 'translateY(0) scale(1.05)';
+                        item.style.opacity = '1';
+                        item.style.zIndex = '30';
+                        item.style.pointerEvents = 'auto';
+                    } else if (diff === -1) {
+                        // Prev (Top)
+                        item.style.transform = 'translateY(-85px) scale(0.85)';
+                        item.style.opacity = '0.45';
+                        item.style.zIndex = '10';
+                        item.style.pointerEvents = 'none';
+                    } else if (diff === 1) {
+                        // Next (Bottom)
+                        item.style.transform = 'translateY(85px) scale(0.85)';
+                        item.style.opacity = '0.45';
+                        item.style.zIndex = '10';
+                        item.style.pointerEvents = 'none';
+                    } else {
+                        // Hidden
+                        if (diff < -1) {
+                            item.style.transform = 'translateY(-170px) scale(0.7)';
+                        } else {
+                            item.style.transform = 'translateY(170px) scale(0.7)';
+                        }
+                        item.style.opacity = '0';
+                        item.style.zIndex = '0';
+                        item.style.pointerEvents = 'none';
+                    }
+                });
+            }
+
+            // Initialize
+            updateCarousel();
+
+            // Autoplay
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateCarousel();
+            }, 3000);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCarousel);
+        } else {
+            initCarousel();
+        }
+    })();
+</script>
                 </div>
                 
                 <!-- Elementos decorativos de fondo -->
-                <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-50 -z-10"></div>
-                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-green-100 rounded-full blur-3xl opacity-50 -z-10"></div>
+                <div id="heroGlow1" class="absolute -top-10 -right-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-50 -z-10"></div>
+                <div id="heroGlow2" class="absolute -bottom-10 -left-10 w-40 h-40 bg-green-100 rounded-full blur-3xl opacity-50 -z-10"></div>
             </div>
 
         </div>

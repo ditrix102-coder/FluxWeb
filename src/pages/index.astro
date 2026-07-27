@@ -29,149 +29,22 @@ import Footer from '../components/Footer.astro';
     <!-- AOS CSS para animaciones -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- Script en línea para prevenir parpadeo (Flicker) al recargar -->
+    <!-- Prevenir parpadeo de color/tema (Flash of Unstyled Content) -->
     <script is:inline>
         (function() {
-            if (sessionStorage.getItem('bootSequencePlayed')) {
-                document.documentElement.classList.add('boot-skipped');
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
             }
         })();
     </script>
-
-    <style>
-        #boot-screen {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            background-color: #000000;
-            color: #d3d7cf;
-            font-family: 'Ubuntu Mono', monospace;
-            overflow: hidden;
-            margin: 0;
-            font-size: 15px;
-            padding: 20px;
-            transition: opacity 0.5s ease;
-            display: flex;
-            flex-direction: column;
-            pointer-events: auto;
-        }
-
-        #boot-screen .log-line {
-            margin-bottom: 2px;
-            line-height: 1.3;
-        }
-
-        #boot-screen .timestamp {
-            color: #888888;
-            margin-right: 8px;
-        }
-
-        #boot-screen .ok-bracket {
-            color: #d3d7cf;
-        }
-
-        #boot-screen .ok-text {
-            color: #4E9A06;
-            font-weight: bold;
-        }
-
-        #boot-screen .warn-text {
-            color: #C4A000;
-            font-weight: bold;
-        }
-
-        /* Nueva configuración para el logo ASCII */
-        #boot-screen .ascii-logo {
-            white-space: pre;
-            font-family: 'Courier New', Courier, monospace;
-            color: #E95420;
-            margin-bottom: 20px;
-            /* Se asegura que el logo escale sin romperse */
-            font-size: clamp(4px, 0.8vw, 12px);
-            line-height: 1;
-            letter-spacing: 0;
-            display: block;
-        }
-
-        #boot-screen #splash-screen {
-            display: none;
-            position: absolute;
-            inset: 0;
-            background: #000000;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-        }
-
-        #boot-screen .fluxweb-logo {
-            font-family: 'Ubuntu', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 2rem;
-        }
-
-        #boot-screen .fluxweb-logo span {
-            color: #E95420;
-        }
-
-        #boot-screen .progress-dots {
-            display: flex;
-            gap: 10px;
-        }
-
-        #boot-screen .dot {
-            width: 12px;
-            height: 12px;
-            background-color: #333333;
-            border-radius: 50%;
-            transition: background-color 0.1s ease;
-        }
-
-        #boot-screen .dot.active {
-            background-color: #E95420;
-            box-shadow: 0 0 8px rgba(233, 84, 32, 0.6);
-        }
-
-        #boot-screen.fade-out {
-            opacity: 0 !important;
-            pointer-events: none;
-        }
-
-        html.boot-skipped #boot-screen {
-            display: none !important;
-        }
-
-        html.boot-skipped #main-content {
-            opacity: 1 !important;
-            transition: none !important;
-        }
-
-        /* Prevenir scroll en la página mientras el boot está activo */
-        html:not(.boot-skipped) {
-            overflow: hidden !important;
-        }
-        html:not(.boot-skipped) body {
-            overflow: hidden !important;
-        }
-    </style>
 </head>
 <body class="font-sans antialiased bg-background text-primaryText transition-colors duration-300">
 
-    <!-- Pantalla de Carga FluxWeb -->
-    <div id="boot-screen">
-        <div id="terminal"></div>
-        <div id="splash-screen">
-            <div class="fluxweb-logo">FluxWeb<span>.</span></div>
-            <div class="progress-dots">
-                <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-            </div>
-        </div>
-    </div>
-
     <!-- Contenido Principal -->
-    <div id="main-content" class="opacity-0 transition-opacity duration-1000">
+    <div id="main-content">
         <ThemeToggle />
         <Header />
 
@@ -196,127 +69,6 @@ import Footer from '../components/Footer.astro';
         import '../scripts/main.js';
     </script>
 
-    <!-- Lógica del Bootloader FluxWeb -->
-    <script is:inline>
-        (function() {
-            const terminal = document.getElementById('terminal');
-            const bootScreen = document.getElementById('boot-screen');
-            const splashScreen = document.getElementById('splash-screen');
-            const mainContent = document.getElementById('main-content');
-            const dots = document.querySelectorAll('.dot');
 
-            const logs = [
-                "[    0.000000] Cargando motor de FluxWeb...",
-                "[    0.019283] Conectando con servidor backend...",
-                "[    0.052019] Handshake TLS 1.3 establecido.",
-                "[    0.218290] Sincronizando sesión..."
-            ];
-
-            function sleep(ms) {
-                return new Promise(r => setTimeout(r, ms));
-            }
-
-            async function startBoot() {
-                if (sessionStorage.getItem('bootSequencePlayed')) {
-                    document.documentElement.classList.add('boot-skipped');
-                    if (mainContent) mainContent.classList.remove('opacity-0');
-                    return;
-                }
-
-                const asciiArt = `██████████  ██          ██      ██  ██      ██  ██      ██  ██████████  ████████    
-██████████  ██          ██      ██  ██      ██  ██      ██  ██████████  ████████    
-██          ██          ██      ██    ██  ██    ██      ██  ██          ██      ██  
-██          ██          ██      ██    ██  ██    ██      ██  ██          ██      ██  
-████████    ██          ██      ██      ██      ██  ██  ██  ████████    ████████    
-████████    ██          ██      ██      ██      ██  ██  ██  ████████    ████████    
-██          ██          ██      ██    ██  ██    ████  ████  ██          ██      ██  
-██          ██          ██      ██    ██  ██    ████  ████  ██          ██      ██  
-██          ██████████    ██████    ██      ██  ██      ██  ██████████  ████████    
-██          ██████████    ██████    ██      ██  ██      ██  ██████████  ████████    `;
-                
-                const logoDiv = document.createElement('div');
-                logoDiv.className = 'ascii-logo';
-                logoDiv.textContent = asciiArt;
-                terminal.appendChild(logoDiv);
-                
-                await sleep(1000);
-
-                for (let line of logs) {
-                    const div = document.createElement('div');
-                    div.className = 'log-line';
-                    div.innerHTML = `<span class="timestamp">${line.split(']')[0] + ']'}</span>${line.split(']')[1]}`;
-                    terminal.appendChild(div);
-                    await sleep(150);
-                    terminal.scrollTop = terminal.scrollHeight;
-                }
-
-                const dashDiv = document.createElement('div');
-                dashDiv.className = 'log-line';
-                dashDiv.innerHTML = `[<span class="timestamp">  NET   </span>] Cargando parte visual: <span class="ok-text" id="dash-bar">[</span>`;
-                terminal.appendChild(dashDiv);
-                
-                const dashBar = document.getElementById('dash-bar');
-                for (let i = 0; i < 20; i++) {
-                    await sleep(50);
-                    dashBar.textContent += '-';
-                    terminal.scrollTop = terminal.scrollHeight;
-                }
-                dashBar.textContent += ']';
-                
-                const spinDiv = document.createElement('div');
-                spinDiv.className = 'log-line';
-                spinDiv.innerHTML = `[<span class="timestamp">  SEC   </span>] Protegiendo datos usuario: <span class="warn-text" id="spin-bar"></span>`;
-                terminal.appendChild(spinDiv);
-                
-                const spinBar = document.getElementById('spin-bar');
-                let completed = "";
-                for (let i = 0; i < 15; i++) {
-                    spinBar.textContent = completed + "/";
-                    await sleep(80);
-                    spinBar.textContent = completed + "\\";
-                    await sleep(80);
-                    completed += "~";
-                    spinBar.textContent = completed;
-                    terminal.scrollTop = terminal.scrollHeight;
-                }
-                spinBar.className = "ok-text";
-                spinBar.textContent = completed + " 100% OK";
-
-                await sleep(1000);
-                
-                // Mostrar pantalla de carga gráfica
-                splashScreen.style.display = 'flex';
-                let active = 0;
-                const loader = setInterval(() => {
-                    dots.forEach(d => d.classList.remove('active'));
-                    dots[active].classList.add('active');
-                    active = (active + 1) % dots.length;
-                }, 200);
-
-                await sleep(3000);
-                clearInterval(loader);
-
-                // Guardar estado en sessionStorage
-                sessionStorage.setItem('bootSequencePlayed', 'true');
-
-                // Transición al Sitio Principal
-                bootScreen.classList.add('fade-out');
-                document.documentElement.classList.add('boot-skipped');
-                
-                setTimeout(() => {
-                    mainContent.classList.remove('opacity-0');
-                    // Desencadenar animaciones de entrada en main.js
-                    window.dispatchEvent(new CustomEvent('boot-complete'));
-                }, 500);
-            }
-
-            // Iniciar secuencia de inmediato al cargar la estructura del DOM
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', startBoot);
-            } else {
-                startBoot();
-            }
-        })();
-    </script>
 </body>
 </html>
