@@ -1,45 +1,342 @@
 ---
 ---
-<section id="trabajos" class="py-24 bg-surface border-y border-borderLight">
+<section id="trabajos" class="py-24 bg-background border-y border-borderLight overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
-            <div class="max-w-2xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-primaryText mb-4">Negocios que ya escalaron</h2>
-                <p class="text-secondaryText text-lg">Ejemplos reales de cómo un buen sistema cambia las reglas del juego.</p>
+        
+        <!-- Encabezado de la sección -->
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-6 section-header opacity-0 translate-y-8" data-aos="fade-up">
+            <div class="max-w-3xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-primaryText mb-6 tracking-tight">Soluciones que escalan negocios</h2>
+                <p class="text-secondaryText text-lg md:text-xl leading-relaxed">No hacemos simples páginas web. Diseñamos sistemas digitales orientados a resolver problemas reales, automatizar procesos y generar confianza.</p>
             </div>
-            <a href="#contacto" class="hidden md:inline-flex items-center gap-2 text-brand font-medium hover:underline">
-                Quiero resultados similares <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Proyecto 1 -->
-            <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-                <div class="overflow-hidden rounded-2xl mb-6 bg-gray-100 aspect-[4/3]">
-                    <!-- Imagen representativa (Usando placeholder premium) -->
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Consultorio Arquitectura" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-start">
+            
+            <!-- CASO DE ESTUDIO 1: Constructora -->
+            <article class="case-card group bg-surface border border-borderLight flex flex-col rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover smooth-transition opacity-0 translate-y-12">
+                <!-- Imagen Principal con Parallax -->
+                <div class="relative parallax-wrapper aspect-[16/10] bg-gray-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200" alt="Web Constructora" class="parallax-img w-full object-cover transform scale-100 group-hover:scale-105 smooth-transition">
+                    <!-- Tag Categoría -->
+                    <div class="absolute top-5 left-5 bg-surface/95 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold text-brand shadow-sm">
+                        Constructora
+                    </div>
                 </div>
-                <h4 class="text-xl font-bold text-primaryText mb-2">Estudio de Arquitectura</h4>
-                <p class="text-secondaryText mb-4 text-sm">Automatización de citas y portfolio web. Aumentaron sus reuniones de valoración en un 45% al permitir agendar automáticamente 24/7.</p>
-            </div>
 
-            <!-- Proyecto 2 -->
-            <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-                <div class="overflow-hidden rounded-2xl mb-6 bg-gray-100 aspect-[4/3]">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800" alt="Clínica Odontológica" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
-                </div>
-                <h4 class="text-xl font-bold text-primaryText mb-2">Clínica Odontológica</h4>
-                <p class="text-secondaryText mb-4 text-sm">Asistente de IA en WhatsApp para filtrar urgencias, enviar presupuestos base y recordatorios de turnos. Ahorro de 15 hs semanales de la secretaria.</p>
-            </div>
+                <!-- Contenido -->
+                <div class="p-8 flex flex-col flex-grow">
+                    <h3 class="text-2xl font-bold text-primaryText mb-3 group-hover:text-brand smooth-transition">Grupo Inmobiliario Nova</h3>
+                    
+                    <!-- Resumen -->
+                    <p class="text-sm text-secondaryText leading-relaxed mb-6">Renovación de presencia digital orientada a proyectar máxima confianza y aumentar la captación de clientes de alto valor adquisitivo.</p>
 
-            <!-- Proyecto 3 -->
-            <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
-                <div class="overflow-hidden rounded-2xl mb-6 bg-gray-100 aspect-[4/3]">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Despacho Contable" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <!-- Botón Expandir -->
+                    <button class="expand-btn flex items-center justify-between w-full px-5 py-3.5 rounded-xl bg-background border border-borderLight text-primaryText hover:border-brand hover:text-brand smooth-transition group/expand">
+                        <span class="btn-text font-medium text-sm">Ver caso completo</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 icon-chevron group-hover/expand:translate-y-0.5 smooth-transition"></i>
+                    </button>
+
+                    <!-- Contenido Expandible (Detalles) -->
+                    <div class="expandable-wrapper overflow-hidden h-0 opacity-0">
+                        <div class="pt-8">
+                            <!-- Problema -->
+                            <div class="mb-6">
+                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">El Problema</h4>
+                                <p class="text-sm text-primaryText/90 leading-relaxed">Falta de presencia digital. Perdían licitaciones y clientes de alto valor adquisitivo al no proyectar confianza ni contar con un portfolio profesional accesible.</p>
+                            </div>
+
+                            <!-- Solución -->
+                            <div class="mb-8">
+                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">La Solución</h4>
+                                <p class="text-sm text-primaryText/90 leading-relaxed">Sitio web corporativo inmersivo con galerías de proyectos en alta calidad, optimizado para SEO local y formularios de captación segmentados.</p>
+                            </div>
+
+                            <!-- Servicios (Etiquetas) -->
+                            <div class="mb-8">
+                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">Servicios Implementados</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Sitio Corporativo</span>
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> SEO</span>
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Responsive</span>
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> GSAP</span>
+                                </div>
+                            </div>
+
+                            <!-- Beneficios -->
+                            <div class="mb-10 p-5 rounded-2xl bg-background border border-borderLight">
+                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-4">Impacto Logrado</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]">+65%</span> <span class="text-sm font-medium text-primaryText">Tiempo promedio en la web</span></li>
+                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]">Top 3</span> <span class="text-sm font-medium text-primaryText">Posicionamiento local orgánico</span></li>
+                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]"><i data-lucide="shield-check" class="w-5 h-5"></i></span> <span class="text-sm font-medium text-primaryText">Mejor imagen profesional</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Botón y Tecnologías -->
+                            <div class="mt-auto flex flex-col gap-6">
+                                <a href="#" class="inline-flex items-center justify-center w-full px-6 py-4 bg-brand text-white font-medium rounded-xl hover:bg-blue-700 smooth-transition gap-2 group/btn shadow-md hover:shadow-lg">
+                                    Visitar proyecto
+                                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover/btn:translate-x-1 smooth-transition"></i>
+                                </a>
+                                <div class="flex items-center justify-center gap-4 text-xs font-medium text-secondaryText">
+                                    <span>Astro</span> • <span>Tailwind</span> • <span>GSAP</span> • <span>Lenis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h4 class="text-xl font-bold text-primaryText mb-2">Despacho Contable</h4>
-                <p class="text-secondaryText mb-4 text-sm">Web corporativa con portal de carga segura de documentos. Redujo correos cruzados y transmitió una imagen altamente corporativa.</p>
-            </div>
+            </article>
+
+            <!-- CASO DE ESTUDIO 2: Odontología -->
+            <article class="case-card group bg-surface border border-borderLight flex flex-col rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover smooth-transition opacity-0 translate-y-12">
+                <div class="relative parallax-wrapper aspect-[16/10] bg-gray-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1200" alt="Clínica Odontológica" class="parallax-img w-full object-cover transform scale-100 group-hover:scale-105 smooth-transition">
+                    <div class="absolute top-5 left-5 bg-surface/95 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold text-brand shadow-sm">
+                        Odontología
+                    </div>
+                </div>
+
+                <div class="p-8 flex flex-col flex-grow">
+                    <h3 class="text-2xl font-bold text-primaryText mb-3 group-hover:text-brand smooth-transition">Clínica Sonrisas</h3>
+                    
+                    <!-- Resumen -->
+                    <p class="text-sm text-secondaryText leading-relaxed mb-6">Sistema de agendamiento automatizado y filtrado inteligente por WhatsApp para optimizar el tiempo de gestión administrativa.</p>
+
+                    <!-- Botón Expandir -->
+                    <button class="expand-btn flex items-center justify-between w-full px-5 py-3.5 rounded-xl bg-background border border-borderLight text-primaryText hover:border-brand hover:text-brand smooth-transition group/expand">
+                        <span class="btn-text font-medium text-sm">Ver caso completo</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 icon-chevron group-hover/expand:translate-y-0.5 smooth-transition"></i>
+                    </button>
+
+                    <!-- Contenido Expandible (Detalles) -->
+                    <div class="expandable-wrapper overflow-hidden h-0 opacity-0">
+                        <div class="pt-8">
+                            <div class="mb-6">
+                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">El Problema</h4>
+                                <p class="text-sm text-primaryText/90 leading-relaxed">Saturación administrativa. Recibían todas las consultas únicamente por WhatsApp, generando demoras en las respuestas y pérdida de turnos potenciales.</p>
+                            </div>
+
+                            <div class="mb-8">
+                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">La Solución</h4>
+                                <p class="text-sm text-primaryText/90 leading-relaxed">Landing Page de alta conversión integrada con un embudo automatizado para filtrado de urgencias y agendamiento inteligente por WhatsApp.</p>
+                            </div>
+
+                            <div class="mb-8">
+                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">Servicios Implementados</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Landing Page</span>
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Automatización</span>
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> WhatsApp API</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-10 p-5 rounded-2xl bg-background border border-borderLight">
+                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-4">Impacto Logrado</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]">+40%</span> <span class="text-sm font-medium text-primaryText">Nuevas consultas mensuales</span></li>
+                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]">-12 hs</span> <span class="text-sm font-medium text-primaryText">Semanales ahorradas en gestión</span></li>
+                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]"><i data-lucide="zap" class="w-5 h-5"></i></span> <span class="text-sm font-medium text-primaryText">Atención instantánea 24/7</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-auto flex flex-col gap-6">
+                                <a href="#" class="inline-flex items-center justify-center w-full px-6 py-4 bg-brand text-white font-medium rounded-xl hover:bg-blue-700 smooth-transition gap-2 group/btn shadow-md hover:shadow-lg">
+                                    Visitar proyecto
+                                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover/btn:translate-x-1 smooth-transition"></i>
+                                </a>
+                                <div class="flex items-center justify-center gap-4 text-xs font-medium text-secondaryText">
+                                    <span>Astro</span> • <span>Tailwind</span> • <span>GSAP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CASO DE ESTUDIO 3: Estudio Jurídico -->
+            <article class="case-card group bg-surface border border-borderLight flex flex-col rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover smooth-transition opacity-0 translate-y-12">
+                <div class="relative parallax-wrapper aspect-[16/10] bg-gray-100 dark:bg-slate-900">
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=1200" alt="Estudio Jurídico" class="parallax-img w-full object-cover transform scale-100 group-hover:scale-105 smooth-transition">
+                    <div class="absolute top-5 left-5 bg-surface/95 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold text-brand shadow-sm">
+                        Estudio Jurídico
+                    </div>
+                </div>
+
+                <div class="p-8 flex flex-col flex-grow">
+                    <h3 class="text-2xl font-bold text-primaryText mb-3 group-hover:text-brand smooth-transition">García & Asociados</h3>
+                    
+                    <!-- Resumen -->
+                    <p class="text-sm text-secondaryText leading-relaxed mb-6">Estrategia de captación de leads orgánicos con embudos de precalificación para potenciar consultas legales de calidad.</p>
+
+                    <!-- Botón Expandir -->
+                    <button class="expand-btn flex items-center justify-between w-full px-5 py-3.5 rounded-xl bg-background border border-borderLight text-primaryText hover:border-brand hover:text-brand smooth-transition group/expand">
+                        <span class="btn-text font-medium text-sm">Ver caso completo</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 icon-chevron group-hover/expand:translate-y-0.5 smooth-transition"></i>
+                    </button>
+
+                    <!-- Contenido Expandible (Detalles) -->
+                    <div class="expandable-wrapper overflow-hidden h-0 opacity-0">
+                        <div class="pt-8">
+                            <div class="mb-6">
+                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">El Problema</h4>
+                                <p class="text-sm text-primaryText/90 leading-relaxed">No tenían un canal oficial para captar clientes en internet. Su crecimiento dependía 100% del boca a boca tradicional y referidos limitados.</p>
+                            </div>
+
+                            <div class="mb-8">
+                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">La Solución</h4>
+                                <p class="text-sm text-primaryText/90 leading-relaxed">Diseño de un sitio web elegante que transmite autoridad inmediata. Sistema de formularios avanzados para precalificar el tipo de consulta legal.</p>
+                            </div>
+
+                            <div class="mb-8">
+                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">Servicios Implementados</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Sitio Corporativo</span>
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Formulario Avanzado</span>
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Optimización Velocidad</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-10 p-5 rounded-2xl bg-background border border-borderLight">
+                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-4">Impacto Logrado</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]">+120%</span> <span class="text-sm font-medium text-primaryText">Aumento en leads orgánicos</span></li>
+                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]"><i data-lucide="clock" class="w-5 h-5"></i></span> <span class="text-sm font-medium text-primaryText">Filtro automático de consultas</span></li>
+                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]"><i data-lucide="badge-check" class="w-5 h-5"></i></span> <span class="text-sm font-medium text-primaryText">Percepción de alta gama</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="mt-auto flex flex-col gap-6">
+                                <a href="#" class="inline-flex items-center justify-center w-full px-6 py-4 bg-brand text-white font-medium rounded-xl hover:bg-blue-700 smooth-transition gap-2 group/btn shadow-md hover:shadow-lg">
+                                    Visitar proyecto
+                                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover/btn:translate-x-1 smooth-transition"></i>
+                                </a>
+                                <div class="flex items-center justify-center gap-4 text-xs font-medium text-secondaryText">
+                                    <span>Astro</span> • <span>Tailwind</span> • <span>Lenis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
         </div>
     </div>
 </section>
+
+<style>
+    .parallax-wrapper {
+        overflow: hidden;
+    }
+    .parallax-img {
+        height: 120%; /* Extra height for parallax travel */
+        transform-origin: center center;
+    }
+    .smooth-transition {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+</style>
+
+<script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    function initTrabajosSection() {
+        // 1. Animación del Encabezado de la sección
+        gsap.to(".section-header", {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: "#trabajos",
+                start: "top 80%",
+            }
+        });
+
+        // 2. Reveal progresivo (Stagger) de las Cards de Casos de Estudio
+        gsap.to(".case-card", {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: "#trabajos .grid",
+                start: "top 85%",
+            }
+        });
+
+        // 3. Efecto Parallax Sutil en las Imágenes al hacer scroll
+        const parallaxImages = document.querySelectorAll('.parallax-img');
+        parallaxImages.forEach(img => {
+            gsap.to(img, {
+                yPercent: -15,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: img.closest('.case-card'),
+                    start: "top bottom", 
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });
+
+        // 4. Lógica de Acordeón para expandir Casos de Estudio
+        const expandBtns = document.querySelectorAll('.expand-btn');
+        
+        expandBtns.forEach(btn => {
+            let isExpanded = false;
+            const contentWrapper = btn.nextElementSibling;
+            if (!contentWrapper) return;
+            const chevron = btn.querySelector('.icon-chevron');
+            const textSpan = btn.querySelector('.btn-text');
+
+            btn.addEventListener('click', () => {
+                isExpanded = !isExpanded;
+                
+                if (isExpanded) {
+                    if (textSpan) textSpan.textContent = "Ocultar detalles";
+                    if (chevron) gsap.to(chevron, { rotation: 180, duration: 0.3, ease: "power2.out" });
+                    
+                    // Animar altura y opacidad
+                    gsap.to(contentWrapper, {
+                        height: "auto",
+                        opacity: 1,
+                        duration: 0.5,
+                        ease: "power2.out",
+                        onComplete: () => {
+                            ScrollTrigger.refresh();
+                        }
+                    });
+                } else {
+                    if (textSpan) textSpan.textContent = "Ver caso completo";
+                    if (chevron) gsap.to(chevron, { rotation: 0, duration: 0.3, ease: "power2.out" });
+                    
+                    // Ocultar altura y opacidad
+                    gsap.to(contentWrapper, {
+                        height: 0,
+                        opacity: 0,
+                        duration: 0.4,
+                        ease: "power2.inOut",
+                        onComplete: () => {
+                            ScrollTrigger.refresh();
+                        }
+                    });
+                }
+            });
+        });
+    }
+
+    // Inicializar después de que cargue la página
+    document.addEventListener("DOMContentLoaded", () => {
+        initTrabajosSection();
+    });
+
+    // Para soporte de SPA o transiciones de Astro (astro:page-load)
+    document.addEventListener("astro:page-load", () => {
+        initTrabajosSection();
+    });
+</script>
