@@ -246,7 +246,6 @@ window.selectNavItem = function(element, event) {
             
             if (btnAsesoria && btnText && btnProgress) {
                 let isAnimating = false;
-                let countdownInterval;
                 
                 btnAsesoria.addEventListener('click', (e) => {
                     if (isAnimating) {
@@ -262,7 +261,7 @@ window.selectNavItem = function(element, event) {
                     btnProgress.style.transition = 'none';
                     btnProgress.style.width = '0%';
                     btnProgress.getBoundingClientRect(); // Force reflow
-                    btnProgress.style.transition = 'width 4000ms linear';
+                    btnProgress.style.transition = 'width 2000ms linear';
                     btnProgress.style.width = '100%';
                     
                     const svg = btnAsesoria.querySelector('svg');
@@ -271,45 +270,38 @@ window.selectNavItem = function(element, event) {
                         svg.classList.add('animate-spin');
                     }
                     
-                    let timeLeft = 4;
-                    btnText.textContent = `Agendando en ${timeLeft}s...`;
+                    btnText.textContent = 'Agendando...';
                     
-                    countdownInterval = setInterval(() => {
-                        timeLeft -= 1;
-                        if (timeLeft > 0) {
-                            btnText.textContent = `Agendando en ${timeLeft}s...`;
-                        } else {
-                            clearInterval(countdownInterval);
-                            btnText.textContent = '¡Listo!';
+                    setTimeout(() => {
+                        btnText.textContent = '¡Listo!';
+                        
+                        setTimeout(() => {
+                            isAnimating = false;
+                            btnAsesoria.style.pointerEvents = 'auto';
+                            btnText.textContent = 'Agendar asesoría gratuita';
+                            btnProgress.style.transition = 'none';
+                            btnProgress.style.width = '0%';
+                            if (svg) {
+                                svg.classList.remove('animate-spin');
+                                svg.classList.add('rotate-45');
+                            }
                             
-                            setTimeout(() => {
-                                isAnimating = false;
-                                btnAsesoria.style.pointerEvents = 'auto';
-                                btnText.textContent = 'Agendar asesoría gratuita';
-                                btnProgress.style.transition = 'none';
-                                btnProgress.style.width = '0%';
-                                if (svg) {
-                                    svg.classList.remove('animate-spin');
-                                    svg.classList.add('rotate-45');
+                            const targetElement = document.querySelector('#contacto');
+                            if (targetElement) {
+                                if (lenis) {
+                                    lenis.scrollTo(targetElement, {
+                                        offset: -100,
+                                        duration: 1.2
+                                    });
+                                } else {
+                                    window.scrollTo({
+                                        top: targetElement.offsetTop - 100,
+                                        behavior: 'smooth'
+                                    });
                                 }
-                                
-                                const targetElement = document.querySelector('#contacto');
-                                if (targetElement) {
-                                    if (lenis) {
-                                        lenis.scrollTo(targetElement, {
-                                            offset: -100,
-                                            duration: 1.2
-                                        });
-                                    } else {
-                                        window.scrollTo({
-                                            top: targetElement.offsetTop - 100,
-                                            behavior: 'smooth'
-                                        });
-                                    }
-                                }
-                            }, 500);
-                        }
-                    }, 1000);
+                            }
+                        }, 500);
+                    }, 2000);
                 });
             }
         }
