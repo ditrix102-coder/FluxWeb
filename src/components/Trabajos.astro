@@ -13,74 +13,66 @@
             
             <!-- CASO DE ESTUDIO 1: Constructora -->
             <article class="case-card group bg-surface border border-borderLight flex flex-col rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover smooth-transition opacity-0 translate-y-12">
-                <!-- Imagen Principal con Parallax -->
-                <div class="relative parallax-wrapper aspect-[16/10] bg-gray-100 dark:bg-slate-900">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200" alt="Web Constructora" class="parallax-img w-full object-cover transform scale-100 group-hover:scale-105 smooth-transition">
-                    <!-- Tag Categoría -->
-                    <div class="absolute top-5 left-5 bg-surface/95 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold text-brand shadow-sm">
+                <!-- Imagen Principal -->
+                <div class="relative aspect-[16/10] bg-gray-100 dark:bg-slate-900 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200" alt="Web Constructora" class="card-img w-full h-full object-cover transform scale-100 group-hover:scale-105 smooth-transition">
+                    <div class="card-category absolute top-5 left-5 bg-surface/95 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold text-brand shadow-sm">
                         Constructora
                     </div>
                 </div>
 
-                <!-- Contenido -->
+                <!-- Contenido Resumen -->
                 <div class="p-8 flex flex-col flex-grow text-center items-center">
-                    <h3 class="text-2xl font-bold text-primaryText mb-3 group-hover:text-brand smooth-transition text-center w-full">Grupo Inmobiliario Nova</h3>
-                    
-                    <!-- Resumen -->
-                    <p class="text-sm text-secondaryText leading-relaxed mb-6 text-center w-full flex-grow">Renovación de presencia digital orientada a proyectar máxima confianza y aumentar la captación de clientes de alto valor adquisitivo.</p>
+                    <h3 class="card-title text-2xl font-bold text-primaryText mb-3 group-hover:text-brand smooth-transition text-center w-full">Grupo Inmobiliario Nova</h3>
+                    <p class="text-sm text-secondaryText leading-relaxed mb-8 text-center w-full flex-grow">Renovación de presencia digital orientada a proyectar máxima confianza y aumentar la captación de clientes de alto valor adquisitivo.</p>
 
-                    <!-- Botón Expandir -->
-                    <button class="expand-btn mt-auto flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-xl bg-background border border-borderLight text-primaryText hover:border-brand hover:text-brand smooth-transition group/expand">
-                        <span class="btn-text font-medium text-sm">Ver caso completo</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 icon-chevron group-hover/expand:translate-y-0.5 smooth-transition"></i>
+                    <!-- Botón Abrir Modal -->
+                    <button class="open-modal-btn mt-auto flex items-center justify-center w-full px-5 py-3.5 rounded-xl bg-background border border-borderLight text-primaryText hover:border-brand hover:text-brand smooth-transition group/btn">
+                        <span class="font-medium text-sm">Ver caso completo</span>
+                        <i data-lucide="maximize-2" class="w-4 h-4 ml-2 text-secondaryText group-hover/btn:text-brand smooth-transition"></i>
                     </button>
+                </div>
 
-                    <!-- Contenido Expandible (Detalles) -->
-                    <div class="expandable-wrapper overflow-hidden h-0 opacity-0 text-left w-full">
-                        <div class="pt-8">
-                            <!-- Problema -->
-                            <div class="mb-6">
-                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">El Problema</h4>
-                                <p class="text-sm text-primaryText/90 leading-relaxed">Falta de presencia digital. Perdían licitaciones y clientes de alto valor adquisitivo al no proyectar confianza ni contar con un portfolio profesional accesible.</p>
+                <!-- DATOS OCULTOS COMPACTOS PARA EL MODAL (Responsive) -->
+                <div class="hidden modal-data">
+                    <div class="flex flex-col h-full justify-start md:justify-between gap-4 md:gap-3 lg:gap-4">
+                        
+                        <!-- Problema y Solución (Stack en móvil, Lado a Lado en Desktop) -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-4 lg:gap-6">
+                            <div>
+                                <h4 class="text-[10px] md:text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-1.5 flex items-center gap-1.5"><i data-lucide="target" class="w-3.5 h-3.5"></i> El Problema</h4>
+                                <p class="text-[13px] md:text-sm text-primaryText/90 leading-snug">Falta de presencia acorde. Perdían clientes premium al no proyectar confianza y depender de enviar pesados PDFs por correo, limitando sus licitaciones.</p>
                             </div>
+                            <div>
+                                <h4 class="text-[10px] md:text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-1.5 flex items-center gap-1.5"><i data-lucide="lightbulb" class="w-3.5 h-3.5"></i> La Solución</h4>
+                                <p class="text-[13px] md:text-sm text-primaryText/90 leading-snug">Sitio web corporativo inmersivo con galerías rápidas, SEO local y un sistema de captación segmentado directamente hacia su equipo de ventas.</p>
+                            </div>
+                        </div>
 
-                            <!-- Solución -->
-                            <div class="mb-8">
-                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">La Solución</h4>
-                                <p class="text-sm text-primaryText/90 leading-relaxed">Sitio web corporativo inmersivo con galerías de proyectos en alta calidad, optimizado para SEO local y formularios de captación segmentados.</p>
-                            </div>
+                        <!-- Impacto (Grid adaptable) -->
+                        <div class="bg-background border border-borderLight rounded-xl p-3 sm:p-4 mt-1 md:mt-2">
+                            <h4 class="text-[10px] font-bold text-secondaryText uppercase tracking-widest mb-2.5">Impacto Logrado</h4>
+                            <ul class="grid grid-cols-2 sm:grid-cols-3 gap-y-3 gap-x-2">
+                                <li class="flex flex-col"><span class="text-accent font-bold text-lg lg:text-xl leading-none">+65%</span> <span class="text-[10px] lg:text-[11px] font-medium text-primaryText mt-1">Tiempo web</span></li>
+                                <li class="flex flex-col sm:border-l border-borderLight sm:pl-3"><span class="text-accent font-bold text-lg lg:text-xl leading-none">Top 3</span> <span class="text-[10px] lg:text-[11px] font-medium text-primaryText mt-1">SEO Orgánico</span></li>
+                                <li class="flex flex-col col-span-2 sm:col-span-1 sm:border-l border-borderLight sm:pl-3"><span class="text-accent font-bold text-lg lg:text-xl leading-none flex items-center"><i data-lucide="shield-check" class="w-4 h-4 lg:w-5 lg:h-5"></i></span> <span class="text-[10px] lg:text-[11px] font-medium text-primaryText mt-1">Imagen Premium</span></li>
+                            </ul>
+                        </div>
 
-                            <!-- Servicios (Etiquetas) -->
-                            <div class="mb-8">
-                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">Servicios Implementados</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Sitio Corporativo</span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> SEO</span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Responsive</span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> GSAP</span>
-                                </div>
+                        <!-- Servicios -->
+                        <div class="mt-1 md:mt-2">
+                            <h4 class="text-[10px] font-bold text-secondaryText uppercase tracking-widest mb-2">Implementación</h4>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                                <span class="px-2 py-1 rounded-md bg-brand/5 border border-brand/10 text-[10px] sm:text-[11px] font-medium text-primaryText">Web Corporativa</span>
+                                <span class="px-2 py-1 rounded-md bg-brand/5 border border-brand/10 text-[10px] sm:text-[11px] font-medium text-primaryText">SEO Local</span>
+                                <span class="px-2 py-1 rounded-md bg-brand/5 border border-brand/10 text-[10px] sm:text-[11px] font-medium text-primaryText">Formularios</span>
                             </div>
+                        </div>
 
-                            <!-- Beneficios -->
-                            <div class="mb-10 p-5 rounded-2xl bg-background border border-borderLight">
-                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-4">Impacto Logrado</h4>
-                                <ul class="space-y-3">
-                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]">+65%</span> <span class="text-sm font-medium text-primaryText">Tiempo promedio en la web</span></li>
-                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]">Top 3</span> <span class="text-sm font-medium text-primaryText">Posicionamiento local orgánico</span></li>
-                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]"><i data-lucide="shield-check" class="w-5 h-5"></i></span> <span class="text-sm font-medium text-primaryText">Mejor imagen profesional</span></li>
-                                </ul>
-                            </div>
-
-                            <!-- Botón y Tecnologías -->
-                            <div class="mt-auto flex flex-col gap-6">
-                                <a href="#" class="inline-flex items-center justify-center w-full px-6 py-4 bg-brand text-white font-medium rounded-xl hover:bg-blue-700 smooth-transition gap-2 group/btn shadow-md hover:shadow-lg">
-                                    Visitar proyecto
-                                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover/btn:translate-x-1 smooth-transition"></i>
-                                </a>
-                                <div class="flex items-center justify-center gap-4 text-xs font-medium text-secondaryText">
-                                    <span>Astro</span> • <span>Tailwind</span> • <span>GSAP</span> • <span>Lenis</span>
-                                </div>
-                            </div>
+                        <!-- Tecnologías -->
+                        <div class="flex items-center gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] font-medium text-secondaryText pt-3 border-t border-borderLight mt-auto">
+                            <span class="uppercase tracking-wider">Tech:</span>
+                            <span class="text-primaryText">Astro</span> • <span class="text-primaryText">Tailwind</span> • <span class="text-primaryText">GSAP</span>
                         </div>
                     </div>
                 </div>
@@ -88,66 +80,61 @@
 
             <!-- CASO DE ESTUDIO 2: Odontología -->
             <article class="case-card group bg-surface border border-borderLight flex flex-col rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover smooth-transition opacity-0 translate-y-12">
-                <div class="relative parallax-wrapper aspect-[16/10] bg-gray-100 dark:bg-slate-900">
-                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1200" alt="Clínica Odontológica" class="parallax-img w-full object-cover transform scale-100 group-hover:scale-105 smooth-transition">
-                    <div class="absolute top-5 left-5 bg-surface/95 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold text-brand shadow-sm">
+                <div class="relative aspect-[16/10] bg-gray-100 dark:bg-slate-900 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1200" alt="Clínica Odontológica" class="card-img w-full h-full object-cover transform scale-100 group-hover:scale-105 smooth-transition">
+                    <div class="card-category absolute top-5 left-5 bg-surface/95 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold text-brand shadow-sm">
                         Odontología
                     </div>
                 </div>
 
-                <!-- Contenido -->
+                <!-- Contenido Resumen -->
                 <div class="p-8 flex flex-col flex-grow text-center items-center">
-                    <h3 class="text-2xl font-bold text-primaryText mb-3 group-hover:text-brand smooth-transition text-center w-full">Clínica Sonrisas</h3>
-                    
-                    <!-- Resumen -->
-                    <p class="text-sm text-secondaryText leading-relaxed mb-6 text-center w-full flex-grow">Sistema de agendamiento automatizado y filtrado inteligente por WhatsApp para optimizar el tiempo de gestión administrativa.</p>
+                    <h3 class="card-title text-2xl font-bold text-primaryText mb-3 group-hover:text-brand smooth-transition text-center w-full">Clínica Sonrisas</h3>
+                    <p class="text-sm text-secondaryText leading-relaxed mb-8 text-center w-full flex-grow">Sistema de agendamiento automatizado y filtrado inteligente por WhatsApp para optimizar el tiempo administrativo.</p>
 
-                    <!-- Botón Expandir -->
-                    <button class="expand-btn mt-auto flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-xl bg-background border border-borderLight text-primaryText hover:border-brand hover:text-brand smooth-transition group/expand">
-                        <span class="btn-text font-medium text-sm">Ver caso completo</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 icon-chevron group-hover/expand:translate-y-0.5 smooth-transition"></i>
+                    <!-- Botón Abrir Modal -->
+                    <button class="open-modal-btn mt-auto flex items-center justify-center w-full px-5 py-3.5 rounded-xl bg-background border border-borderLight text-primaryText hover:border-brand hover:text-brand smooth-transition group/btn">
+                        <span class="font-medium text-sm">Ver caso completo</span>
+                        <i data-lucide="maximize-2" class="w-4 h-4 ml-2 text-secondaryText group-hover/btn:text-brand smooth-transition"></i>
                     </button>
+                </div>
 
-                    <!-- Contenido Expandible (Detalles) -->
-                    <div class="expandable-wrapper overflow-hidden h-0 opacity-0 text-left w-full">
-                        <div class="pt-8">
-                            <div class="mb-6">
-                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">El Problema</h4>
-                                <p class="text-sm text-primaryText/90 leading-relaxed">Saturación administrativa. Recibían todas las consultas únicamente por WhatsApp, generando demoras en las respuestas y pérdida de turnos potenciales.</p>
+                <!-- DATOS OCULTOS COMPACTOS PARA EL MODAL (Responsive) -->
+                <div class="hidden modal-data">
+                    <div class="flex flex-col h-full justify-start md:justify-between gap-4 md:gap-3 lg:gap-4">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-4 lg:gap-6">
+                            <div>
+                                <h4 class="text-[10px] md:text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-1.5 flex items-center gap-1.5"><i data-lucide="target" class="w-3.5 h-3.5"></i> El Problema</h4>
+                                <p class="text-[13px] md:text-sm text-primaryText/90 leading-snug">Saturación administrativa. Cientos de consultas por WhatsApp generaban estrés, demoras en la respuesta y pérdida de pacientes impacientes.</p>
                             </div>
+                            <div>
+                                <h4 class="text-[10px] md:text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-1.5 flex items-center gap-1.5"><i data-lucide="lightbulb" class="w-3.5 h-3.5"></i> La Solución</h4>
+                                <p class="text-[13px] md:text-sm text-primaryText/90 leading-snug">Landing Page rápida conectada a un embudo automatizado. Filtra urgencias y agenda consultas por WhatsApp sin intervención humana inicial.</p>
+                            </div>
+                        </div>
 
-                            <div class="mb-8">
-                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">La Solución</h4>
-                                <p class="text-sm text-primaryText/90 leading-relaxed">Landing Page de alta conversión integrada con un embudo automatizado para filtrado de urgencias y agendamiento inteligente por WhatsApp.</p>
-                            </div>
+                        <div class="bg-background border border-borderLight rounded-xl p-3 sm:p-4 mt-1 md:mt-2">
+                            <h4 class="text-[10px] font-bold text-secondaryText uppercase tracking-widest mb-2.5">Impacto Logrado</h4>
+                            <ul class="grid grid-cols-2 sm:grid-cols-3 gap-y-3 gap-x-2">
+                                <li class="flex flex-col"><span class="text-accent font-bold text-lg lg:text-xl leading-none">+40%</span> <span class="text-[10px] lg:text-[11px] font-medium text-primaryText mt-1">Citas agendadas</span></li>
+                                <li class="flex items-center sm:border-l border-borderLight sm:pl-3 flex-col"><span class="text-accent font-bold text-lg lg:text-xl leading-none">-12 hs</span> <span class="text-[10px] lg:text-[11px] font-medium text-primaryText mt-1">Ahorro semanal</span></li>
+                                <li class="flex flex-col col-span-2 sm:col-span-1 sm:border-l border-borderLight sm:pl-3"><span class="text-accent font-bold text-lg lg:text-xl leading-none flex items-center"><i data-lucide="zap" class="w-4 h-4 lg:w-5 lg:h-5"></i></span> <span class="text-[10px] lg:text-[11px] font-medium text-primaryText mt-1">Atención 24/7</span></li>
+                            </ul>
+                        </div>
 
-                            <div class="mb-8">
-                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">Servicios Implementados</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Landing Page</span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Automatización</span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> WhatsApp API</span>
-                                </div>
+                        <div class="mt-1 md:mt-2">
+                            <h4 class="text-[10px] font-bold text-secondaryText uppercase tracking-widest mb-2">Implementación</h4>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                                <span class="px-2 py-1 rounded-md bg-brand/5 border border-brand/10 text-[10px] sm:text-[11px] font-medium text-primaryText">Landing Page</span>
+                                <span class="px-2 py-1 rounded-md bg-brand/5 border border-brand/10 text-[10px] sm:text-[11px] font-medium text-primaryText">Automatización</span>
+                                <span class="px-2 py-1 rounded-md bg-brand/5 border border-brand/10 text-[10px] sm:text-[11px] font-medium text-primaryText">WhatsApp API</span>
                             </div>
+                        </div>
 
-                            <div class="mb-10 p-5 rounded-2xl bg-background border border-borderLight">
-                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-4">Impacto Logrado</h4>
-                                <ul class="space-y-3">
-                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]">+40%</span> <span class="text-sm font-medium text-primaryText">Nuevas consultas mensuales</span></li>
-                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]">-12 hs</span> <span class="text-sm font-medium text-primaryText">Semanales ahorradas en gestión</span></li>
-                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]"><i data-lucide="zap" class="w-5 h-5"></i></span> <span class="text-sm font-medium text-primaryText">Atención instantánea 24/7</span></li>
-                                </ul>
-                            </div>
-
-                            <div class="mt-auto flex flex-col gap-6">
-                                <a href="#" class="inline-flex items-center justify-center w-full px-6 py-4 bg-brand text-white font-medium rounded-xl hover:bg-blue-700 smooth-transition gap-2 group/btn shadow-md hover:shadow-lg">
-                                    Visitar proyecto
-                                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover/btn:translate-x-1 smooth-transition"></i>
-                                </a>
-                                <div class="flex items-center justify-center gap-4 text-xs font-medium text-secondaryText">
-                                    <span>Astro</span> • <span>Tailwind</span> • <span>GSAP</span>
-                                </div>
-                            </div>
+                        <div class="flex items-center gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] font-medium text-secondaryText pt-3 border-t border-borderLight mt-auto">
+                            <span class="uppercase tracking-wider">Tech:</span>
+                            <span class="text-primaryText">React</span> • <span class="text-primaryText">Tailwind</span> • <span class="text-primaryText">Node.js</span>
                         </div>
                     </div>
                 </div>
@@ -155,66 +142,61 @@
 
             <!-- CASO DE ESTUDIO 3: Estudio Jurídico -->
             <article class="case-card group bg-surface border border-borderLight flex flex-col rounded-3xl overflow-hidden shadow-premium hover:shadow-premium-hover smooth-transition opacity-0 translate-y-12">
-                <div class="relative parallax-wrapper aspect-[16/10] bg-gray-100 dark:bg-slate-900">
-                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=1200" alt="Estudio Jurídico" class="parallax-img w-full object-cover transform scale-100 group-hover:scale-105 smooth-transition">
+                <div class="relative aspect-[16/10] bg-gray-100 dark:bg-slate-900 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=1200" alt="Estudio Jurídico" class="card-img w-full h-full object-cover transform scale-100 group-hover:scale-105 smooth-transition">
                     <div class="absolute top-5 left-5 bg-surface/95 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold text-brand shadow-sm">
                         Estudio Jurídico
                     </div>
                 </div>
 
-                <!-- Contenido -->
+                <!-- Contenido Resumen -->
                 <div class="p-8 flex flex-col flex-grow text-center items-center">
-                    <h3 class="text-2xl font-bold text-primaryText mb-3 group-hover:text-brand smooth-transition text-center w-full">García & Asociados</h3>
-                    
-                    <!-- Resumen -->
-                    <p class="text-sm text-secondaryText leading-relaxed mb-6 text-center w-full flex-grow">Estrategia de captación de leads orgánicos con embudos de precalificación para potenciar consultas legales de calidad.</p>
+                    <h3 class="card-title text-2xl font-bold text-primaryText mb-3 group-hover:text-brand smooth-transition text-center w-full">García & Asociados</h3>
+                    <p class="text-sm text-secondaryText leading-relaxed mb-8 text-center w-full flex-grow">Estrategia de captación orgánica con embudos de precalificación para potenciar consultas legales de calidad.</p>
 
-                    <!-- Botón Expandir -->
-                    <button class="expand-btn mt-auto flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-xl bg-background border border-borderLight text-primaryText hover:border-brand hover:text-brand smooth-transition group/expand">
-                        <span class="btn-text font-medium text-sm">Ver caso completo</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 icon-chevron group-hover/expand:translate-y-0.5 smooth-transition"></i>
+                    <!-- Botón Abrir Modal -->
+                    <button class="open-modal-btn mt-auto flex items-center justify-center w-full px-5 py-3.5 rounded-xl bg-background border border-borderLight text-primaryText hover:border-brand hover:text-brand smooth-transition group/btn">
+                        <span class="font-medium text-sm">Ver caso completo</span>
+                        <i data-lucide="maximize-2" class="w-4 h-4 ml-2 text-secondaryText group-hover/btn:text-brand smooth-transition"></i>
                     </button>
+                </div>
 
-                    <!-- Contenido Expandible (Detalles) -->
-                    <div class="expandable-wrapper overflow-hidden h-0 opacity-0 text-left w-full">
-                        <div class="pt-8">
-                            <div class="mb-6">
-                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">El Problema</h4>
-                                <p class="text-sm text-primaryText/90 leading-relaxed">No tenían un canal oficial para captar clientes en internet. Su crecimiento dependía 100% del boca a boca tradicional y referidos limitados.</p>
+                <!-- DATOS OCULTOS COMPACTOS PARA EL MODAL (Responsive) -->
+                <div class="hidden modal-data">
+                    <div class="flex flex-col h-full justify-start md:justify-between gap-4 md:gap-3 lg:gap-4">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-4 lg:gap-6">
+                            <div>
+                                <h4 class="text-[10px] md:text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-1.5 flex items-center gap-1.5"><i data-lucide="target" class="w-3.5 h-3.5"></i> El Problema</h4>
+                                <p class="text-[13px] md:text-sm text-primaryText/90 leading-snug">Dependencia del boca a boca. Sin canal oficial online, el estudio no captaba nuevos clientes, estancando su facturación y crecimiento.</p>
                             </div>
+                            <div>
+                                <h4 class="text-[10px] md:text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-1.5 flex items-center gap-1.5"><i data-lucide="lightbulb" class="w-3.5 h-3.5"></i> La Solución</h4>
+                                <p class="text-[13px] md:text-sm text-primaryText/90 leading-snug">Sitio web de alta autoridad visual. Formularios de múltiples pasos inteligentes que precalifican al cliente antes de contactar al abogado.</p>
+                            </div>
+                        </div>
 
-                            <div class="mb-8">
-                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">La Solución</h4>
-                                <p class="text-sm text-primaryText/90 leading-relaxed">Diseño de un sitio web elegante que transmite autoridad inmediata. Sistema de formularios avanzados para precalificar el tipo de consulta legal.</p>
-                            </div>
+                        <div class="bg-background border border-borderLight rounded-xl p-3 sm:p-4 mt-1 md:mt-2">
+                            <h4 class="text-[10px] font-bold text-secondaryText uppercase tracking-widest mb-2.5">Impacto Logrado</h4>
+                            <ul class="grid grid-cols-2 sm:grid-cols-3 gap-y-3 gap-x-2">
+                                <li class="flex flex-col"><span class="text-accent font-bold text-lg lg:text-xl leading-none">+120%</span> <span class="text-[10px] lg:text-[11px] font-medium text-primaryText mt-1">Leads Calificados</span></li>
+                                <li class="flex flex-col sm:border-l border-borderLight sm:pl-3 col-span-1"><span class="text-accent font-bold text-lg lg:text-xl leading-none flex items-center"><i data-lucide="clock" class="w-4 h-4 lg:w-5 lg:h-5"></i></span> <span class="text-[10px] lg:text-[11px] font-medium text-primaryText mt-1">Filtro Automático</span></li>
+                                <li class="flex flex-col col-span-2 sm:col-span-1 sm:border-l border-borderLight sm:pl-3"><span class="text-accent font-bold text-lg lg:text-xl leading-none flex items-center"><i data-lucide="badge-check" class="w-4 h-4 lg:w-5 lg:h-5"></i></span> <span class="text-[10px] lg:text-[11px] font-medium text-primaryText mt-1">Confianza Visual</span></li>
+                            </ul>
+                        </div>
 
-                            <div class="mb-8">
-                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-3">Servicios Implementados</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Sitio Corporativo</span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Formulario Avanzado</span>
-                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-background border border-borderLight text-xs font-medium text-secondaryText"><i data-lucide="check" class="w-3.5 h-3.5 text-brand"></i> Optimización Velocidad</span>
-                                </div>
+                        <div class="mt-1 md:mt-2">
+                            <h4 class="text-[10px] font-bold text-secondaryText uppercase tracking-widest mb-2">Implementación</h4>
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                                <span class="px-2 py-1 rounded-md bg-brand/5 border border-brand/10 text-[10px] sm:text-[11px] font-medium text-primaryText">Web Autoridad</span>
+                                <span class="px-2 py-1 rounded-md bg-brand/5 border border-brand/10 text-[10px] sm:text-[11px] font-medium text-primaryText">Funnels</span>
+                                <span class="px-2 py-1 rounded-md bg-brand/5 border border-brand/10 text-[10px] sm:text-[11px] font-medium text-primaryText">Optimización WPO</span>
                             </div>
+                        </div>
 
-                            <div class="mb-10 p-5 rounded-2xl bg-background border border-borderLight">
-                                <h4 class="text-[11px] font-bold text-secondaryText uppercase tracking-widest mb-4">Impacto Logrado</h4>
-                                <ul class="space-y-3">
-                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]">+120%</span> <span class="text-sm font-medium text-primaryText">Aumento en leads orgánicos</span></li>
-                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]"><i data-lucide="clock" class="w-5 h-5"></i></span> <span class="text-sm font-medium text-primaryText">Filtro automático de consultas</span></li>
-                                    <li class="flex items-center gap-3"><span class="text-accent font-bold text-lg min-w-[50px]"><i data-lucide="badge-check" class="w-5 h-5"></i></span> <span class="text-sm font-medium text-primaryText">Percepción de alta gama</span></li>
-                                </ul>
-                            </div>
-
-                            <div class="mt-auto flex flex-col gap-6">
-                                <a href="#" class="inline-flex items-center justify-center w-full px-6 py-4 bg-brand text-white font-medium rounded-xl hover:bg-blue-700 smooth-transition gap-2 group/btn shadow-md hover:shadow-lg">
-                                    Visitar proyecto
-                                    <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover/btn:translate-x-1 smooth-transition"></i>
-                                </a>
-                                <div class="flex items-center justify-center gap-4 text-xs font-medium text-secondaryText">
-                                    <span>Astro</span> • <span>Tailwind</span> • <span>Lenis</span>
-                                </div>
-                            </div>
+                        <div class="flex items-center gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] font-medium text-secondaryText pt-3 border-t border-borderLight mt-auto">
+                            <span class="uppercase tracking-wider">Tech:</span>
+                            <span class="text-primaryText">Astro</span> • <span class="text-primaryText">Tailwind</span> • <span class="text-primaryText">Lenis</span>
                         </div>
                     </div>
                 </div>
@@ -224,16 +206,73 @@
     </div>
 </section>
 
+<!-- MODAL DE CASO DE ESTUDIO (Adaptable y Responsive) -->
+<div id="caseModal" class="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 lg:p-10 opacity-0 pointer-events-none hidden">
+    <!-- Overlay oscuro -->
+    <div class="absolute inset-0 bg-background/90 backdrop-blur-md case-modal-bg"></div>
+    
+    <!-- Contenedor del Modal (Responsive: scroll interno solo si desborda en móvil) -->
+    <div class="relative w-full max-w-5xl h-[95vh] sm:h-auto sm:max-h-[90vh] md:h-[75vh] md:min-h-[550px] md:max-h-[700px] bg-surface border border-borderLight rounded-2xl md:rounded-[2rem] shadow-2xl overflow-hidden flex flex-col md:flex-row case-modal-container scale-95 opacity-0">
+        
+        <!-- Botón Cerrar Flotante -->
+        <button class="absolute top-3 right-3 md:top-4 md:right-4 z-20 w-9 h-9 md:w-10 md:h-10 bg-background/80 backdrop-blur-md border border-borderLight rounded-full flex items-center justify-center text-primaryText hover:text-brand hover:border-brand transition-all duration-300 shadow-sm modal-close-btn group" aria-label="Cerrar modal">
+            <i data-lucide="x" class="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform"></i>
+        </button>
+
+        <!-- Izquierda: Contenido -->
+        <div class="w-full md:w-[60%] lg:w-[55%] p-5 sm:p-6 md:p-8 flex flex-col h-full bg-surface">
+            
+            <!-- Header del Modal -->
+            <div class="mb-4 md:mb-5 shrink-0 pr-8 md:pr-0">
+                <div class="inline-block bg-brand/10 text-brand px-2.5 py-1 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-wider mb-2 modal-category">
+                    Categoría
+                </div>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-primaryText leading-tight modal-title">Título del Proyecto</h2>
+            </div>
+            
+            <!-- Contenedor inyectado (Scroll interno habilitado para móviles) -->
+            <div class="modal-text-content flex-grow flex flex-col overflow-y-auto md:overflow-visible custom-scrollbar pr-2 md:pr-0 pb-2 md:pb-0">
+                <!-- Aquí entra el contenido con grid y flex inyectado desde la card -->
+            </div>
+
+            <!-- Controles inferiores fijos -->
+            <div class="mt-4 md:mt-5 pt-4 border-t border-borderLight flex flex-col sm:flex-row gap-3 justify-between items-center shrink-0">
+                <a href="#contacto" class="modal-cta-btn inline-flex items-center justify-center w-full sm:w-auto px-5 py-2.5 bg-brand text-white text-sm font-medium rounded-xl hover:bg-blue-700 smooth-transition gap-2 shadow-md">
+                    Hablar con un asesor
+                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+                <button class="modal-close-btn w-full sm:w-auto px-5 py-2.5 bg-background border border-borderLight text-primaryText text-sm font-medium rounded-xl hover:border-secondaryText smooth-transition">
+                    Volver a casos
+                </button>
+            </div>
+        </div>
+
+        <!-- Derecha: Imagen destacada (Solo visible en Tablet grande / Desktop) -->
+        <div class="hidden md:block w-full md:w-[40%] lg:w-[45%] bg-background relative h-full border-l border-borderLight overflow-hidden">
+            <img src="" alt="Vista del proyecto" class="modal-img w-full h-full object-cover scale-100 hover:scale-105 transition-transform duration-1000 ease-out" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+        </div>
+    </div>
+</div>
+
 <style>
-    .parallax-wrapper {
-        overflow: hidden;
-    }
-    .parallax-img {
-        height: 120%; /* Extra height for parallax travel */
-        transform-origin: center center;
-    }
     .smooth-transition {
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Custom Scrollbar para el Modal (Minimalista) */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: var(--color-border-light);
+        border-radius: 20px;
+    }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: #475569;
     }
 </style>
 
@@ -243,8 +282,8 @@
 
     gsap.registerPlugin(ScrollTrigger);
 
-    function initTrabajosSection() {
-        // 1. Animación del Encabezado de la sección
+    function initTrabajosModalSection() {
+        // 1. Animación del Encabezado
         gsap.to(".section-header", {
             y: 0,
             opacity: 1,
@@ -256,7 +295,7 @@
             }
         });
 
-        // 2. Reveal progresivo (Stagger) de las Cards de Casos de Estudio
+        // 2. Reveal progresivo de las Cards
         gsap.to(".case-card", {
             y: 0,
             opacity: 1,
@@ -269,74 +308,115 @@
             }
         });
 
-        // 3. Efecto Parallax Sutil en las Imágenes al hacer scroll
-        const parallaxImages = document.querySelectorAll('.parallax-img');
-        parallaxImages.forEach(img => {
-            gsap.to(img, {
-                yPercent: -15,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: img.closest('.case-card'),
-                    start: "top bottom", 
-                    end: "bottom top",
-                    scrub: true
+        // 3. Lógica del Modal "Ver caso completo"
+        const modal = document.getElementById('caseModal');
+        if (!modal) return;
+        const modalBg = modal.querySelector('.case-modal-bg');
+        const modalContainer = modal.querySelector('.case-modal-container');
+        const modalTextContent = modal.querySelector('.modal-text-content');
+        const modalImg = modal.querySelector('.modal-img');
+        const modalCategory = modal.querySelector('.modal-category');
+        const modalTitle = modal.querySelector('.modal-title');
+        const closeBtns = modal.querySelectorAll('.modal-close-btn');
+        const ctaBtn = modal.querySelector('.modal-cta-btn');
+
+        // Abrir modal
+        document.querySelectorAll('.open-modal-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const card = e.target.closest('.case-card');
+                if (!card) return;
+                
+                // Extraer datos de la card clickeada
+                const imgElement = card.querySelector('.card-img');
+                const titleElement = card.querySelector('.card-title');
+                const categoryElement = card.querySelector('.card-category');
+                const dataElement = card.querySelector('.modal-data');
+
+                const imgSrc = imgElement ? imgElement.src : '';
+                const title = titleElement ? titleElement.textContent : '';
+                const category = categoryElement ? categoryElement.textContent : '';
+                const detailsHTML = dataElement ? dataElement.innerHTML : '';
+
+                // Poblar el modal
+                if (modalImg) modalImg.src = imgSrc;
+                if (modalTitle) modalTitle.textContent = title;
+                if (modalCategory) modalCategory.textContent = category.trim();
+                if (modalTextContent) modalTextContent.innerHTML = detailsHTML;
+                
+                // Re-inicializar iconos de Lucide dentro del nuevo HTML inyectado
+                if (window.lucide) {
+                    window.lucide.createIcons({ root: modalTextContent });
+                }
+
+                // Preparar Modal
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Bloquear scroll del fondo
+                
+                // Animar entrada con GSAP
+                gsap.to(modal, { opacity: 1, duration: 0.1, pointerEvents: 'auto' });
+                if (modalBg) gsap.fromTo(modalBg, { opacity: 0 }, { opacity: 1, duration: 0.4 });
+                if (modalContainer) {
+                    gsap.fromTo(modalContainer, 
+                        { opacity: 0, scale: 0.95, y: 30 }, 
+                        { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "power3.out", delay: 0.1 }
+                    );
                 }
             });
         });
 
-        // 4. Lógica de Acordeón para expandir Casos de Estudio
-        const expandBtns = document.querySelectorAll('.expand-btn');
-        
-        expandBtns.forEach(btn => {
-            let isExpanded = false;
-            const contentWrapper = btn.nextElementSibling;
-            if (!contentWrapper) return;
-            const chevron = btn.querySelector('.icon-chevron');
-            const textSpan = btn.querySelector('.btn-text');
-
-            btn.addEventListener('click', () => {
-                isExpanded = !isExpanded;
-                
-                if (isExpanded) {
-                    if (textSpan) textSpan.textContent = "Ocultar detalles";
-                    if (chevron) gsap.to(chevron, { rotation: 180, duration: 0.3, ease: "power2.out" });
-                    
-                    // Animar altura y opacidad
-                    gsap.to(contentWrapper, {
-                        height: "auto",
-                        opacity: 1,
-                        duration: 0.5,
-                        ease: "power2.out",
-                        onComplete: () => {
-                            ScrollTrigger.refresh();
-                        }
-                    });
-                } else {
-                    if (textSpan) textSpan.textContent = "Ver caso completo";
-                    if (chevron) gsap.to(chevron, { rotation: 0, duration: 0.3, ease: "power2.out" });
-                    
-                    // Ocultar altura y opacidad
-                    gsap.to(contentWrapper, {
-                        height: 0,
-                        opacity: 0,
-                        duration: 0.4,
-                        ease: "power2.inOut",
-                        onComplete: () => {
-                            ScrollTrigger.refresh();
-                        }
-                    });
+        // Cerrar modal
+        const closeModal = () => {
+            if (modalContainer) {
+                gsap.to(modalContainer, { opacity: 0, scale: 0.95, y: 20, duration: 0.3, ease: "power2.in" });
+            }
+            if (modalBg) {
+                gsap.to(modalBg, { opacity: 0, duration: 0.4, delay: 0.1 });
+            }
+            gsap.to(modal, { 
+                opacity: 0, 
+                duration: 0.1, 
+                delay: 0.4, 
+                onComplete: () => {
+                    modal.classList.add('hidden');
+                    modal.style.pointerEvents = 'none';
+                    document.body.style.overflow = ''; // Desbloquear scroll
                 }
             });
+        };
+
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                closeModal();
+            });
+        });
+
+        if (ctaBtn) {
+            ctaBtn.addEventListener('click', () => {
+                closeModal();
+            });
+        }
+
+        // Cerrar modal al hacer click en el fondo oscuro
+        if (modalBg) {
+            modalBg.addEventListener('click', closeModal);
+        }
+
+        // Cerrar modal con la tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
         });
     }
 
     // Inicializar después de que cargue la página
     document.addEventListener("DOMContentLoaded", () => {
-        initTrabajosSection();
+        initTrabajosModalSection();
     });
 
     // Para soporte de SPA o transiciones de Astro (astro:page-load)
     document.addEventListener("astro:page-load", () => {
-        initTrabajosSection();
+        initTrabajosModalSection();
     });
 </script>
