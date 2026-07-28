@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluxWeb | Landing Page Premium</title>
+    <meta name="description" content="Diseño web moderno y automatizaciones inteligentes para escalar tu negocio.">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        background: '#070a13',
+                        surface: '#0f172a',
+                        primaryText: '#f8fafc',
+                        secondaryText: '#94a3b8',
+                        brand: '#3b82f6',
+                        accent: '#10b981',
+                        borderLight: '#1e293b',
+                    },
+                    boxShadow: {
+                        premium: '0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1)',
+                        'premium-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html, body {
+            overflow-x: hidden;
+            background-color: #070a13;
+            color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+
+        .smooth-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reactive Lines Canvas container */
+        #reactive-lines-container {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-background text-primaryText transition-colors duration-300">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 w-full py-4 px-6 flex justify-between items-center bg-[#070a13]/85 backdrop-blur-md border-b border-borderLight">
+        <a href="#" class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full shadow-md overflow-hidden bg-brand/20 flex items-center justify-center text-brand">
+                <i data-lucide="zap" class="w-5 h-5"></i>
+            </div>
+            <span class="font-bold text-lg tracking-tight text-white">FluxWeb</span>
+        </a>
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-secondaryText">
+            <a href="#inicio" class="hover:text-brand smooth-transition">Inicio</a>
+            <a href="#servicios" class="hover:text-brand smooth-transition">Servicios</a>
+            <a href="#beneficios" class="hover:text-brand smooth-transition">Beneficios</a>
+            <a href="#contacto" class="px-4 py-2 rounded-full bg-brand text-white hover:bg-blue-600 smooth-transition shadow-lg shadow-blue-500/20">Solicitar Presupuesto</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION with Reactive Lines Background -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+        <!-- Background Canvas Animation -->
+        <div id="reactive-lines-container">
+            <canvas id="reactive-lines-canvas" class="w-full h-full block"></canvas>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full text-center">
+            <div class="max-w-4xl mx-auto flex flex-col items-center">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-semibold uppercase tracking-wider mb-8 section-header">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i> El futuro del desarrollo web
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-8 hero-anim opacity-0 -translate-y-4">
+                    Automatizamos tu presencia digital y <span class="text-brand">potenciamos tus ventas</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-secondaryText mb-12 max-w-2xl leading-relaxed hero-anim opacity-0 -translate-y-4">
+                    Creamos plataformas web de alto rendimiento y embudos de venta inteligentes que trabajan para ti 24/7 sin que tengas que saber de tecnología.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full hero-anim opacity-0 -translate-y-4">
+                    <button id="btn-cta-hero" class="flex justify-center gap-2 items-center text-base font-semibold bg-brand text-white hover:bg-blue-600 px-8 py-4 rounded-full shadow-xl shadow-blue-500/20 relative overflow-hidden group smooth-transition w-full sm:w-auto">
+                        <span id="btn-cta-text" class="relative z-10">Agendar Asesoría Gratis</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 smooth-transition relative z-10"></i>
+                        <div id="btn-cta-progress" class="absolute left-0 top-0 bottom-0 bg-white/20 -z-0 w-0 transition-all"></div>
+                    </button>
+                    
+                    <a href="#servicios" class="flex justify-center items-center text-base font-semibold text-slate-300 border border-borderLight bg-slate-900/50 hover:bg-slate-800 px-8 py-4 rounded-full smooth-transition w-full sm:w-auto">
+                        Saber más
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="servicios" class="py-32 bg-background border-t border-borderLight relative z-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20 section-header opacity-0 translate-y-8">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Servicios de ingeniería digital premium</h2>
+                <p class="text-secondaryText text-lg md:text-xl leading-relaxed">Combinamos diseño moderno, optimización de velocidad de carga extrema y automatización con APIs de terceros.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch">
+                <!-- Service 1 -->
+                <div class="service-card group bg-surface border border-borderLight p-8 rounded-3xl shadow-premium hover:shadow-premium-hover smooth-transition flex flex-col text-center items-center opacity-0 translate-y-12">
+                    <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-brand mb-8 group-hover:scale-110 smooth-transition">
+                        <i data-lucide="layout" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-brand smooth-transition">Páginas Web Premium</h3>
+                    <p class="text-secondaryText text-sm leading-relaxed mb-6 flex-grow">Sitios web y landing pages ultra rápidas, responsivas y optimizadas para SEO, diseñadas específicamente para captar la atención de tu cliente ideal.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card group bg-surface border border-borderLight p-8 rounded-3xl shadow-premium hover:shadow-premium-hover smooth-transition flex flex-col text-center items-center opacity-0 translate-y-12">
+                    <div class="w-14 h-14 bg-[#10b981]/10 rounded-2xl flex items-center justify-center text-accent mb-8 group-hover:scale-110 smooth-transition">
+                        <i data-lucide="zap" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-accent smooth-transition">Flujos de Automatización</h3>
+                    <p class="text-secondaryText text-sm leading-relaxed mb-6 flex-grow">Integramos asistentes de WhatsApp, calendarios automatizados y sistemas CRM para automatizar tareas repetitivas de forma transparente.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card group bg-surface border border-borderLight p-8 rounded-3xl shadow-premium hover:shadow-premium-hover smooth-transition flex flex-col text-center items-center opacity-0 translate-y-12">
+                    <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-400 mb-8 group-hover:scale-110 smooth-transition">
+                        <i data-lucide="globe" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-purple-400 smooth-transition">Desarrollo a Medida</h3>
+                    <p class="text-secondaryText text-sm leading-relaxed mb-6 flex-grow">Sistemas a medida para empresas que requieren integraciones robustas, bases de datos complejas o portales web interactivos de alto rendimiento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contacto" class="py-32 bg-[#0a0f1d] border-t border-borderLight relative z-10">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-primaryText mb-6 tracking-tight">
+                ¿Listo para automatizar <span class="text-brand">y crecer?</span>
+            </h2>
+            <p class="text-xl text-secondaryText mb-12 max-w-2xl mx-auto">
+                Hablemos. Cuéntanos tu idea o negocio y te enviaremos una propuesta de automatización digital sin costo.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="https://wa.me/5492804687998" target="_blank" rel="noopener noreferrer" class="flex justify-center items-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-full hover:bg-[#20bd5a] hover:scale-[1.03] shadow-lg shadow-green-500/20 smooth-transition w-full sm:w-auto">
+                    <i data-lucide="message-square" class="w-6 h-6 shrink-0"></i>
+                    <div class="flex flex-col text-left">
+                        <span class="font-medium text-lg leading-tight">Escribir por WhatsApp</span>
+                        <span class="text-xs text-green-100 font-normal leading-tight">+54 9 280 468-7998</span>
+                    </div>
+                </a>
+                <a href="mailto:ditrix102@gmail.com" class="flex justify-center items-center gap-3 bg-surface text-primaryText border border-borderLight px-8 py-4 rounded-full hover:bg-gray-800 hover:scale-[1.03] smooth-transition w-full sm:w-auto shadow-sm">
+                    <i data-lucide="mail" class="w-6 h-6 shrink-0 text-secondaryText"></i>
+                    <div class="flex flex-col text-left">
+                        <span class="font-medium text-base leading-tight">Enviar un correo</span>
+                        <span class="text-xs text-secondaryText font-normal leading-tight">ditrix102@gmail.com</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-background border-t border-borderLight text-center text-sm text-secondaryText relative z-10">
+        <p>&copy; 2026 FluxWeb. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Inicializar iconos
+        lucide.createIcons();
+
+        // Registrar ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // ─── Animaciones de Entrada (GSAP) ───
+            gsap.to(".hero-anim", {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+
+            gsap.to(".section-header", {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#servicios",
+                    start: "top 80%",
+                }
+            });
+
+            gsap.to(".service-card", {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#servicios .grid",
+                    start: "top 85%",
+                }
+            });
+
+            // ─── Lógica del Botón CTA (2 Segundos + redirección) ───
+            const btnCta = document.getElementById("btn-cta-hero");
+            const btnText = document.getElementById("btn-cta-text");
+            const btnProgress = document.getElementById("btn-cta-progress");
+
+            if (btnCta && btnText && btnProgress) {
+                let isAnimating = false;
+                btnCta.addEventListener("click", (e) => {
+                    if (isAnimating) return;
+                    isAnimating = true;
+
+                    btnCta.style.pointerEvents = "none";
+                    btnProgress.style.transition = "none";
+                    btnProgress.style.width = "0%";
+                    btnProgress.getBoundingClientRect(); // Reflow
+                    btnProgress.style.transition = "width 2000ms linear";
+                    btnProgress.style.width = "100%";
+
+                    btnText.textContent = "Agendando...";
+
+                    setTimeout(() => {
+                        btnText.textContent = "¡Listo!";
+
+                        setTimeout(() => {
+                            isAnimating = false;
+                            btnCta.style.pointerEvents = "auto";
+                            btnText.textContent = "Agendar Asesoría Gratis";
+                            btnProgress.style.transition = "none";
+                            btnProgress.style.width = "0%";
+
+                            const target = document.querySelector("#contacto");
+                            if (target) {
+                                target.scrollIntoView({ behavior: "smooth" });
+                            }
+                        }, 500);
+                    }, 2000);
+                });
+            }
+
+            // ─── Lógica de Canvas "Reactive Lines" (Vanilla JS Port) ───
+            const canvas = document.getElementById("reactive-lines-canvas");
+            const container = document.getElementById("reactive-lines-container");
+            
+            if (canvas && container) {
+                const ctx = canvas.getContext("2d");
+                let width = 0;
+                let height = 0;
+                
+                const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+                const cfg = { linesNum: 35, bias: 0.5 };
+
+                const resize = () => {
+                    const rect = container.getBoundingClientRect();
+                    width = rect.width;
+                    height = rect.height;
+                    canvas.width = width * window.devicePixelRatio;
+                    canvas.height = height * window.devicePixelRatio;
+                    ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+                };
+
+                resize();
+                window.addEventListener("resize", resize);
+
+                // Initial positions
+                mouse.x = mouse.targetX = width / 2;
+                mouse.y = mouse.targetY = height / 2;
+
+                document.addEventListener("mousemove", (e) => {
+                    const rect = container.getBoundingClientRect();
+                    mouse.targetX = e.clientX - rect.left;
+                    mouse.targetY = e.clientY - rect.top;
+                });
+
+                const lerp = (a, b, t) => a + (b - a) * t;
+                const clamp = (v, mn, mx) => Math.max(mn, Math.min(mx, v));
+                const map = (v, a, b, c, d) => ((v - a) / (b - a)) * (d - c) + c;
+                const vec = (x, y) => ({ x, y });
+                const vecAdd = (a, b) => ({ x: a.x + b.x, y: a.y + b.y });
+                const vecSub = (a, b) => ({ x: a.x - b.x, y: a.y - b.y });
+                const vecMult = (a, s) => ({ x: a.x * s, y: a.y * s });
+                const vecLerp = (a, b, t) => ({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t });
+
+                const drawCurvedLine = (ctx, start, end, dispTarget, bias, curvePow) => {
+                    const mid = vecLerp(start, end, 0.5);
+                    const dispVec = vecSub(dispTarget, mid);
+
+                    ctx.beginPath();
+                    for (let i = 0; i <= 50; i++) {
+                        const t = i / 50;
+                        const pt = vecLerp(start, end, t);
+                        const d = 2 * Math.pow(t, curvePow * (1 - bias) * 2) * Math.pow(1 - t, curvePow * bias * 2);
+                        const finalPt = vecAdd(pt, vecMult(dispVec, d));
+                        if (i === 0) ctx.moveTo(finalPt.x, finalPt.y);
+                        else ctx.lineTo(finalPt.x, finalPt.y);
+                    }
+                    ctx.stroke();
+                };
+
+                const loop = () => {
+                    mouse.x = lerp(mouse.x, mouse.targetX, 0.05);
+                    mouse.y = lerp(mouse.y, mouse.targetY, 0.1);
+
+                    // Clear canvas with dark background color matching layout background
+                    ctx.fillStyle = "#070a13";
+                    ctx.fillRect(0, 0, width, height);
+
+                    ctx.save();
+                    ctx.translate(width / 2, height / 2);
+
+                    const isMobile = width < 500;
+                    const yOffset = isMobile ? 0.8 * height : 0;
+                    const curvePow = isMobile ? 1.5 : 0.7;
+
+                    const anchorRight = vec(width, -(1.1 * height) + yOffset);
+                    const anchorCenter = vec(0, 2 * height);
+                    const anchorLeft = vec(-width, -height + yOffset);
+
+                    const targetLines = clamp(map(mouse.y, 0, height, 5, 45), 5, 45);
+                    cfg.linesNum = lerp(cfg.linesNum, targetLines, 0.1);
+
+                    const targetBias = clamp(map(mouse.x, 0, width, 0.6, 0.4), 0.4, 0.6);
+                    cfg.bias = lerp(cfg.bias, targetBias, 0.05);
+
+                    ctx.strokeStyle = "rgba(59, 130, 246, 0.15)"; // Soft blue line color
+                    ctx.lineWidth = 1;
+
+                    for (let i = 0; i < cfg.linesNum; i++) {
+                        const t = i / (cfg.linesNum - 1);
+                        const lineEnd = vec(
+                            lerp(anchorCenter.x, anchorLeft.x, 1 - t * t),
+                            lerp(anchorCenter.y, anchorLeft.y, 1 - t * t)
+                        );
+                        const mid = vecAdd(vecMult(anchorRight, 0.5), vecMult(lineEnd, 0.5));
+                        const dispTarget = vecMult(vecAdd(anchorCenter, mid), 0.5);
+
+                        drawCurvedLine(ctx, anchorRight, lineEnd, dispTarget, cfg.bias, curvePow);
+                    }
+
+                    ctx.restore();
+                    requestAnimationFrame(loop);
+                };
+
+                // Start loop
+                requestAnimationFrame(loop);
+            }
+        });
+    </script>
+</body>
+</html>
