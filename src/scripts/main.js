@@ -9,11 +9,11 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 let lenis;
 
 if (!prefersReducedMotion) {
-    // 2. Inicializar Lenis (Configuración de inercia más flotante y suave)
+    // 2. Inicializar Lenis (Configuración de inercia más responsiva)
     lenis = new Lenis({
-        duration: 1.8, // Duración de la animación más larga para mayor suavidad
-        easing: (t) => 1 - Math.pow(1 - t, 4), // Easing Quartic Out para una deceleración más lenta y elegante
-        wheelMultiplier: 0.8, // Atenúa los movimientos bruscos de la rueda del mouse
+        duration: 1.2, // Reducido de 1.8 a 1.2 para mayor velocidad de respuesta
+        easing: (t) => 1 - Math.pow(1 - t, 4), 
+        wheelMultiplier: 1.0, // Aumentado de 0.8 a 1.0 para mayor fluidez de entrada
         smooth: true,
     });
 
